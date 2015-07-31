@@ -1,0 +1,62 @@
+.news-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.news-article-image {
+  overflow: hidden;
+  height: 130px;
+}
+.article-title-text {
+  padding: 10px 0;
+  font-size: 12px;
+  font-weight: lighter;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.article-title-text a {
+  padding: 10px 0;
+  font-size: 12px;
+  font-weight: lighter;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.article-title-text a:hover {
+
+}
+.center-custom-tabs-wrapper {
+  margin-top: -42px;
+}
+.center-custom-nav-tabs > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  zoom:1; /* hasLayout ie7 trigger */
+}
+.center-custom-nav-tabs > li a {
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.center-custom-nav-tabs > li a:active {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-bottom-color: transparent;
+}
+.center-custom-nav-tabs > li.active > a, .center-custom-nav-tabs > li.active > a:hover, .center-custom-nav-tabs > li.active > a:focus {
+  color: #ff5600;
+  cursor: default;
+  background-color: #fff;
+  border-bottom-color: transparent;
+}
+.center-custom-nav-tabs > li > a:hover {
+  border-color: transparent;
+  background-color: #fff;
+  color: #ff5600;
+}
+.center-custom-nav-tabs {
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: transparent;
+}
