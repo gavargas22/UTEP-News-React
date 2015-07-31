@@ -42,7 +42,9 @@ var NewsBox = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({data: data});
+        var topNews =[], size = 3;
+        topNews = data.slice(0, size);
+        this.setState({data: topNews});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -68,8 +70,6 @@ var NewsList = React.createClass({
     return (
       <div className="newslist">
         <Slides data={this.props.data}></Slides>
-        <Pagination data={this.props.data}></Pagination>
-        <Controls></Controls>
       </div>
     );
   }
@@ -97,10 +97,18 @@ var Article = React.createClass({
       'slide': true,
       'active': this.props.active
     });
+    var classNames = "col-sm-4 item article-wrapper";
+    if (this.props.active == true) {
+      classNames += ' active';
+    }
+    var articleImageStyle = {
+      backgroundImage: 'url(' + this.props.imagePath + ')',
+      backgroundSize: 'cover'
+    };
     return (
-      <div className="col-sm-4">
+      <div className={classNames} >
         <a href={this.props.articleLink}>
-          <div className="news-article-image"><img src={this.props.imagePath} className="img-responsive"/></div>
+          <div className="news-article-image" style={articleImageStyle}></div>
           <div className="article-title-text">{this.props.articleTitle}</div>
         </a>
       </div>
@@ -108,48 +116,49 @@ var Article = React.createClass({
   }
 });
 //////////////////////////////////////////////////////
-var Controls = React.createClass({
-  togglePrev: function() {
-    actions.togglePrev();
-  },
-  toggleNext: function() {
-    actions.toggleNext();
-  },
-  render: function() {
-    return (
-      <div className="controls">
-        <div className="toggle toggle-prev" onClick={this.togglePrev}>Previous</div>
-        <div className="toggle toggle-next" onClick={this.toggleNext}>Next</div>
-      </div>
-    );
-  }
-});
 
-var Pagination = React.createClass({
-  render: function() {
-    var paginationNodes = this.props.data.map(function (paginationNode, index) {
-      return (
-        <Pager id={paginationNode.id} key={paginationNode.id} title={paginationNode.index}>{paginationNode.index}</Pager>
-      );
-    });
-    return (
-      <div className="pagination">
-        {paginationNodes}
-      </div>
-    );
-  }
-});
+// var Controls = React.createClass({
+//   togglePrev: function() {
+//     actions.togglePrev();
+//   },
+//   toggleNext: function() {
+//     actions.toggleNext();
+//   },
+//   render: function() {
+//     return (
+//       <div className="controls">
+//         <div className="toggle toggle-prev" onClick={this.togglePrev}>Previous</div>
+//         <div className="toggle toggle-next" onClick={this.toggleNext}>Next</div>
+//       </div>
+//     );
+//   }
+// });
 
-var Pager = React.createClass({
-  toggleSlide: function() {
-    actions.toggleSlide(this.props.id);
-  },
-  render: function() {
-    return (
-      <span className="pager" onClick={this.toggleSlide}>{this.props.title}</span>
-    );
-  }
-});
+// var Pagination = React.createClass({
+//   render: function() {
+//     var paginationNodes = this.props.data.map(function (paginationNode, index) {
+//       return (
+//         <Pager id={paginationNode.id} key={paginationNode.id} title={paginationNode.index}>{paginationNode.index}</Pager>
+//       );
+//     });
+//     return (
+//       <div className="pagination">
+//         {paginationNodes}
+//       </div>
+//     );
+//   }
+// });
+
+// var Pager = React.createClass({
+//   toggleSlide: function() {
+//     actions.toggleSlide(this.props.id);
+//   },
+//   render: function() {
+//     return (
+//       <span className="pager" onClick={this.toggleSlide}>{this.props.title}</span>
+//     );
+//   }
+// });
 
 var EmptyMessage = React.createClass({
   render: function() {

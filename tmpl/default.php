@@ -1,6 +1,11 @@
 <?php
 // No direct access
 defined('_JEXEC') or die;
+
+// $document = & JFactory::getDocument();
+//
+// $document->addStyleSheet("modules/mod_utepnews/assets/css/utep-news.css");
+// $document->addScript('modules/mod_utepnews/assets/jsx/news.jsx');
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">
@@ -14,24 +19,7 @@ defined('_JEXEC') or die;
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="home">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-          </ol>
-
-          <div id="content"></div>
-
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <div id="content"></div>
       </div>
       <div role="tabpanel" class="tab-pane" id="profile">...</div>
       <div role="tabpanel" class="tab-pane" id="messages">...</div>
