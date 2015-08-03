@@ -3,27 +3,18 @@
 defined('_JEXEC') or die;
 
 // $document = & JFactory::getDocument();
-//
-// $document->addStyleSheet("modules/mod_utepnews/assets/css/utep-news.css");
-// $document->addScript('modules/mod_utepnews/assets/jsx/news.jsx');
 ?>
 
-<div class="container-fluid no-padding center-custom-tabs-wrapper">
-  <div class="container">
-
-    <ul class="nav nav-tabs center-custom-nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">NEWS</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">EVENTS</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">MAJORS &amp; PROGRAMS</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">
-        <div id="content"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="profile">...</div>
-      <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    </div>
-
-  </div>
-</div>
+<!-- UTEP Header Menu and Logo /////////////////////////////////////////////-->
+<?php
+  // create a new cURL resource
+  $utepHeaderMenu = curl_init();
+  // set URL and other appropriate options
+  curl_setopt($utepHeaderMenu, CURLOPT_URL, "http://skunkworks.at.utep.edu/utep-header-menu.php");
+  curl_setopt($utepHeaderMenu, CURLOPT_HEADER, 0);
+  // grab URL and pass it to the browser
+  curl_exec($utepHeaderMenu);
+  // close cURL resource, and free up system resources
+  curl_close($utepHeaderMenu);
+?>
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
