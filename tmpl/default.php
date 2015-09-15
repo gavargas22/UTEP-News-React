@@ -20,7 +20,7 @@ defined('_JEXEC') or die;
     </div>
   </div>
 
-  <div class="container">
+  <div class="container news-content">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="home">
         <div id="content"></div>
