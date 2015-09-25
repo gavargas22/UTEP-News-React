@@ -35,3 +35,4 @@ JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js');     
 
 	</div>
 </div>
+<?php JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js'); ?>
