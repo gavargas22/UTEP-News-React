@@ -137,9 +137,7 @@ var EmptyMessage = React.createClass({displayName: "EmptyMessage",
 
 
 jQuery( document ).ready(function() {
-	setTimeout(function() {
-		React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 2000}), document.getElementById('#news-content') );
-	}, 5000);
+	React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 2000}), document.getElementById('#news-content') );
 });
 
 
