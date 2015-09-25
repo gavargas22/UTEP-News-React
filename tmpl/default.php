@@ -5,8 +5,8 @@ defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
 JHtml::_('jquery.framework');
 JHtml::_('stylesheet', JUri::root() . 'media/mod_utepnews/assets/css/utep-news.css');  // For CSS files
-JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.min.js');       // For JS files
-JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react.min.js');       // For JS files
+JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.js');       // For JS files
+JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react.js');       // For JS files
 JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js');       // For JS files
 ?>
 
