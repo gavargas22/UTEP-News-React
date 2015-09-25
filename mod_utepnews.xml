@@ -4,7 +4,7 @@
 		<author>Guillermo Vargas</author>
 		<version>0.0.1</version>
 		<description>This module connects to the news.utep.edu and retrieves and displays the latest news.</description>
-		<media folder="media" destination="mod_utepprofiles">
+		<media folder="media" destination="mod_utepnews">
 			<folder>assets</folder>
 		</media>
 		<files>
