@@ -136,8 +136,9 @@ var EmptyMessage = React.createClass({displayName: "EmptyMessage",
 });
 
 
-
-React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 2000}), jQuery('#news-content') );
+jQuery( document ).ready(function() {
+	React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 2000}), jQuery('#news-content') );
+});
 
 
 
