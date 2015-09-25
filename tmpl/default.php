@@ -24,7 +24,7 @@ JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js');     
 	<div class="container news-content">
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="home">
-				<div id="content"></div>
+				<div id="news-content"></div>
 				<div class="bottom-btn">
 					<a href="http://news.utep.edu" class="btn btn-primary btn-more btn-sm" role="button">More News</a>
 				</div>
