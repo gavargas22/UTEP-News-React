@@ -1,7 +1,3 @@
-// There is a newsbox that contains
-// A set of 4 3 slides
-// Each slide contains two Articles
-
 var slideState = {currentSlide:0, stories:[0,1,2,3,4,5,6,7,8,9]}
 
 // State transitions
@@ -94,7 +90,9 @@ var Slides = React.createClass({
 		});
 		return(
 			<div className="slides row">
+				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-left"></i></div>
 				{slidesNodes}
+				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-right"></i></div>
 			</div>
 		);
 	}
@@ -106,7 +104,7 @@ var Article = React.createClass({
 			'slide': true,
 			'active': this.props.active
 		});
-		var classNames = "col-sm-6 item article-wrapper";
+		var classNames = "col-sm-5 item article-wrapper";
 		if (this.props.active == true) {
 			classNames += ' active';
 		}
