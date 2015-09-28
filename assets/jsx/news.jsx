@@ -90,9 +90,9 @@ var Slides = React.createClass({
 		});
 		return(
 			<div className="slides row">
-				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-left"></i></div>
+				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-left left"></i></div>
 				{slidesNodes}
-				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-right"></i></div>
+				<div className="col-sm-1 slide-control"><i className="fa fa-chevron-right right"></i></div>
 			</div>
 		);
 	}
