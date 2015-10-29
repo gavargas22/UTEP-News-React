@@ -78,7 +78,6 @@ var EventElement = React.createClass({
 						</div>
 					</div>
 					<div className="event-title-text">{this.props.articleTitle}</div>
-					<div className="event-title-excerpt" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
 					<div className="event-attendees">
 						<div className="event-icon">Icon</div>
 						<div className="78"></div>
