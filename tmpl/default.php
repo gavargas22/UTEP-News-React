@@ -1,14 +1,23 @@
 <?php
-// No direct access
-defined('_JEXEC') or die;
+	// No direct access
+	defined('_JEXEC') or die;
 
-$doc = JFactory::getDocument();
-// JHtml::_('jquery.framework');
-// JHtml::_('stylesheet', JUri::root() . 'media/mod_utepnews/assets/css/utep-news.css');  // For CSS files
-// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.js');       // For JS files
-// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react.js');       // For JS files
-// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/JSXTransformer.js');       // For JS files
-// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js');
+	$doc = JFactory::getDocument();
+	// Load React JS with Addons
+	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.js');
+	// Load the JSX to JS transformer
+	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/react/JSXTransformer.js');
+	 // Load the JSX for News in the head of document
+	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/news.jsx', $type = "text/jsx");
+	// Load the JSX for the Events component
+	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/events.jsx', $type = "text/jsx");
+
+	// JHtml::_('jquery.framework');
+	// JHtml::_('stylesheet', JUri::root() . 'media/mod_utepnews/assets/css/utep-news.css');  // For CSS files
+	// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.js');       // For JS files
+	// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/react.js');       // For JS files
+	// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/react/JSXTransformer.js');       // For JS files
+	// JHtml::_('script', JUri::root() . 'media/mod_utepnews/assets/jsx/news.js');
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">

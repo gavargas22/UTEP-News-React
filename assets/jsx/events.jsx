@@ -5,7 +5,7 @@ var EventsBox = React.createClass({
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
-				var topEvents =[], size = 2;
+				var topEvents =[], size = 4;
 				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
@@ -63,7 +63,7 @@ var EventSlides = React.createClass({
 
 var EventElement = React.createClass({
 	render: function() {
-		var classNames = "col-sm-5 item article-wrapper";
+		var classNames = "col-sm-3 item";
 		var articleImageStyle = {
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
@@ -71,9 +71,18 @@ var EventElement = React.createClass({
 		return (
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
-					<div className="news-article-image" style={articleImageStyle}></div>
-					<div className="article-title-text">{this.props.articleTitle}</div>
-					<div className="article-title-excerpt" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
+					<div className="event-image-image" style={articleImageStyle}>
+						<div className="event-date">
+							<h1>19</h1>
+							<p>Jun</p>
+						</div>
+					</div>
+					<div className="event-title-text">{this.props.articleTitle}</div>
+					<div className="event-title-excerpt" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
+					<div className="event-attendees">
+						<div className="event-icon">Icon</div>
+						<div className="78"></div>
+					</div>
 				</a>
 			</div>
 		)
