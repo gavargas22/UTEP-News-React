@@ -135,7 +135,7 @@ var EmptyMessage = React.createClass({
 
 
 
-React.render( <NewsBox url="http://news.utep.edu/?rest_route=/wp/v2/posts" pollInterval={2000} />, document.getElementById('news-content') );
+React.render( <NewsBox url="http://news.utep.edu/?rest_route=/wp/v2/posts" pollInterval={20000} />, document.getElementById('news-content') );
 
 
 
