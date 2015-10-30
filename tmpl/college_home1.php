@@ -2,7 +2,7 @@
 
 <?php
   $jsonData = file_get_content('http://news.utep.edu/?rest_route=/wp/v2/posts');
-  $jsonData = json_decode($json);
+  $jsonData = json_decode($jsonData);
   var_dump($data);
 ?>
 <div class="col-lg-6">
