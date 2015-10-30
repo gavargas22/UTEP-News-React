@@ -41,6 +41,9 @@ var NewsBox = React.createClass({
 			url: this.props.url,
 			dataType: 'json',
 			cache: false,
+			beforeSend: function() {
+				// jQuery('#loading-graphic').addClass('hidden');
+			},
 			success: function(data) {
 				var topNews =[], size = 2;
 				topNews = data.slice(0, size);
@@ -100,6 +103,8 @@ var Slides = React.createClass({
 
 var Article = React.createClass({
 	render: function() {
+		// Hide the loading graphic
+		jQuery('#loading-graphic').addClass('hidden');
 		var classes = React.addons.classSet({
 			'slide': true,
 			'active': this.props.active
@@ -117,7 +122,7 @@ var Article = React.createClass({
 				<a href={this.props.articleLink}>
 					<div className="news-article-image" style={articleImageStyle}></div>
 					<div className="article-title-text">{this.props.articleTitle}</div>
-					<div className="article-title-excerpt" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
+					<div className="article-title-excerpt hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
 				</a>
 			</div>
 		)

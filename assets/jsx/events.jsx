@@ -1,3 +1,19 @@
+// Months Array
+var months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December"
+];
+
 var EventsBox = React.createClass({
 	loadEventsFromServer: function() {
 		jQuery.ajax({
@@ -40,7 +56,12 @@ var EventsList = React.createClass({
 
 var EventSlides = React.createClass({
 	render: function() {
+		var eventsRowStyle = {
+			marginLeft: 160,
+			marginRight: 160
+		};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
+		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
 		var defaultImageURL = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
 		var eventNodes = this.props.data.map(function (evt, index) {
 			if (evt.icon == null) {
@@ -48,14 +69,12 @@ var EventSlides = React.createClass({
 				evt.featured_image_thumbnail_url = defaultImageURL;
 			}
 			return (
-				<EventElement articleLink={evt.link} imagePath={imageServerURLPrefix.concat(evt.icon)} articleTitle={evt.name} articleExcerpt={evt.description} key={index}></EventElement>
+				<EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={imageServerURLPrefix.concat(evt.icon)} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
 			);
 		});
 		return(
-			<div className="slides row">
-				<div className="col-sm-1 slide-control"><i className="fa fa-angle-left left"></i></div>
+			<div className="row" style={eventsRowStyle}>
 				{eventNodes}
-				<div className="col-sm-1 slide-control"><i className="fa fa-angle-right right"></i></div>
 			</div>
 		);
 	}
@@ -71,23 +90,17 @@ var EventElement = React.createClass({
 		return (
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
-					<div className="event-image-image" style={articleImageStyle}>
-						<div className="event-date">
-							<h1>19</h1>
-							<p>Jun</p>
-						</div>
-					</div>
-					<div className="event-title-text">{this.props.articleTitle}</div>
-					<div className="event-attendees">
-						<div className="event-icon">Icon</div>
-						<div className="78"></div>
+					<div className="alert alert-default calendar-card" role="alert">
+						<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
+						<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
+						<div className="event-date-title">{this.props.articleTitle}</div>
 					</div>
 				</a>
 			</div>
 		)
 	}
 });
-//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////"2015-10-10 06:00:00"
 
 
 
