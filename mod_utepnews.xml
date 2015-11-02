@@ -20,5 +20,17 @@
 				<filename>tmpl/index.html</filename>
 		</files>
 		<config>
+			<fields name="params">
+				<fieldset name="basic">
+
+					<field name="headerType" type="radio" default="0" label="Select Header Type" description="" class="btn-group">
+						<option value="0">1 Header</option>
+						<option value="1">2 Headers</option>
+					</field>
+
+					<field name="h1" type="text" size="50" label="Header 1" description="Website's First Header"/>
+					<field name="h2" type="text" size="50" label="Header 2" description="Website's Second Header"/>
+				</fieldset>
+			</fields>
 		</config>
 </extension>

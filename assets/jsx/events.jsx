@@ -100,11 +100,11 @@ var EventElement = React.createClass({
 		)
 	}
 });
-//////////////////////////////////////////////////////"2015-10-10 06:00:00"
+//////////////////////////////////////////////////////
 
 
 
-React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={2000} />, document.getElementById('events-content') );
+React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={10000} />, document.getElementById('events-content') );
 
 
 
