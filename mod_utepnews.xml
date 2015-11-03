@@ -23,7 +23,7 @@
 			<fields name="params">
 				<fieldset name="basic">
 
-					<field name="headerType" type="radio" default="0" label="Select news categories to display" description="" class="btn-group">
+					<field name="headerType" type="checkboxes" default="0" label="Select news categories to display" description="" class="btn-group">
 						<option value="0">All Categories</option>
 						<option value="1">College of Business</option>
 						<option value="2">College of Education</option>
@@ -35,9 +35,6 @@
 					</field>
 					<h1>Hello</h1>
 
-
-					<field name="custom" type="text" size="50" label="Header 1" description="Website's First Header"/>
-					<field name="h2" type="text" size="50" label="Header 2" description="Website's Second Header"/>
 				</fieldset>
 			</fields>
 		</config>
