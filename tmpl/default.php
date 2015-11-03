@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="profile">
-				<h1 style="color:#ff8200;text-align:center;">LATEST EVENTS</h1>
+				<!-- <h1 style="color:#ff8200;">LATEST EVENTS</h1> -->
 				<div id="events-content"></div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="messages">...</div>
