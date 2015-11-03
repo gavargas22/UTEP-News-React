@@ -1,17 +1,17 @@
 // Months Array
 var months = [
-	"January",
-	"February",
-	"March",
-	"April",
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
 	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December"
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec"
 ];
 
 var EventsBox = React.createClass({
@@ -21,7 +21,7 @@ var EventsBox = React.createClass({
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
-				var topEvents =[], size = 4;
+				var topEvents =[], size = 2;
 				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
@@ -62,11 +62,10 @@ var EventSlides = React.createClass({
 		};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
 		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
-		var defaultImageURL = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
+		var defaultImageURL = "http://dev.utep.edu/media/mod_utepnews/assets/images/default.jpg";
 		var eventNodes = this.props.data.map(function (evt, index) {
-			if (evt.icon == null) {
-				evt.imagePath = defaultImageURL;
-				evt.featured_image_thumbnail_url = defaultImageURL;
+			if (evt.icon == "") {
+				evt.icon = "default.png";
 			}
 			return (
 				<EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={imageServerURLPrefix.concat(evt.icon)} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
@@ -82,7 +81,7 @@ var EventSlides = React.createClass({
 
 var EventElement = React.createClass({
 	render: function() {
-		var classNames = "col-sm-3 item";
+		var classNames = "col-sm-6 item";
 		var articleImageStyle = {
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
@@ -90,11 +89,18 @@ var EventElement = React.createClass({
 		return (
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
-					<div className="alert alert-default calendar-card" role="alert">
-						<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
-						<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
+
+					<div className="col-lg-6 event-icon" style={articleImageStyle}>
+						<div className="picture-date-wrapper">
+							<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
+							<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
+						</div>
+					</div>
+
+					<div className="col-lg-6">
 						<div className="event-date-title">{this.props.articleTitle}</div>
 					</div>
+
 				</a>
 			</div>
 		)
