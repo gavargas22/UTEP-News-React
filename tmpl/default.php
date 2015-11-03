@@ -41,7 +41,7 @@ $post_image = "";
 	?>
 	<?php if ($i < 3) { ?>
 
-		<div class="col-lg-12" style="margin-bottom:20px;">
+		<div class="col-lg-12 no-padding" style="margin-bottom:20px;">
 			<div class="col-lg-6" style="background-image:url(<?php echo($post_image);?>);background-size:cover;background-position:50% 50%;height: 160px;">&nbsp;</div>
 			<div class="col-lg-6">
 				<div class="filter-article-title"><?php echo($post["title"]["rendered"]);?></div>
