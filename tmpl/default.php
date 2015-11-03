@@ -13,50 +13,52 @@
 	// $doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/news.jsx', $type = "text/jsx");
 	// // Load the JSX for the Events component
 	// $doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/events.jsx', $type = "text/jsx");
+
 ?>
 
 <?php
 	$jsonPostsURL = 'http://news.utep.edu/?rest_route=/wp/v2/posts';
 
 	$jsonData = file_get_contents($jsonPostsURL);
-	$posts = json_decode($jsondata);
+	$posts = json_decode($jsonData, true);
 ?>
-
-<?php foreach ($articles as $article): ?>
-  <div class="col-lg-4 news-article-element">
-    <a href="<?php echo JUri::root().'index.php/news/'.$article->id.'-'.$article->alias;?>">
-      <div class="feat-wide5-image left relative">
-    		<div class="top-icons">
-    			<i class="fa fa-comment"></i> <?php echo $article->hits; ?>
-    		</div>
-    		<div class="bottom-title">
-  				<span class="news-headline-title">LEAD ARTICLE PRESS </span>
-  				<div class="feature-title"><?php echo $article->title; ?></div>
-    		</div>
-  		 <img width="auto" height="auto" src="<?php echo $pictures->{'image_intro'} ?>" class="attachment-post-thumbnail" alt="UTEP News">
-      </div>
-    </a>
-  </div>
-<?php endforeach ?>
 
 <h2 style="color: #ff8200; font-weight: bold; text-transform: uppercase;">Featured News</h2>
 <div class="orange-strip" style="width: 100px; height: 3px; margin-bottom: 30px;">&nbsp;</div>
 
-<?php $i = 0; ?>
+<?php
+$i = 0;
+$post_image = "";
+?>
+<div class="row" style="padding-left: 15px;">
 <?php foreach ($posts as $post): ?>
-	<?php if ($i < 3): ?>
-		<div class="row" style="padding-left: 15px;">
-			<div class="col-lg-6" style="background-color: #7a7a7a; height: 160px;">&nbsp;</div>
+	<?php
+		if ($post["featured_image_thumbnail_url"] == "") {
+			$post_image = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
+		} else {
+			$post_image = $post["featured_image_thumbnail_url"];
+		}
+	?>
+	<?php if ($i < 3) { ?>
+
+		<div class="col-lg-12" style="margin-bottom:20px;">
+			<div class="col-lg-6" style="background-image:url(<?php echo($post_image);?>);background-size:cover;background-position:50% 50%;height: 160px;">&nbsp;</div>
 			<div class="col-lg-6">
-				<div class="filter-article-title"><?php echo($post->title)?></div>
-				<div class="filter-article-more" style="font-size: 11px;">Pa explis atem esedi dolorumet, velit quo et aciati omnia simaximodit lam re, nessit abore ellate excepe.
-					<div class="filter-article-more"><br> <a href="#" style="color: #b1b3b3; font-size: 11px;">Read More &gt;</a></div>
+				<div class="filter-article-title"><?php echo($post["title"]["rendered"]);?></div>
+				<?php
+				$excerpt = $post["excerpt"]["rendered"];
+				if (strlen($excerpt) > 250) {
+					$excerpt = substr($excerpt, 0, 100) . '...';
+				}
+				?>
+				<div class="filter-article-more" style="font-size: 11px;"><?php echo($excerpt);?>
+					<div class="filter-article-more"><br> <a href="<?php echo($post['link']); ?>" style="color: #b1b3b3; font-size: 11px;">Read More &gt;</a></div>
 				</div>
 			</div>
 		</div>
 		<?php $i++ ?>
-	<?php endif ?>
-<?php else {
-	break;
-}
-?>
+		<?php } else {
+			break;
+		} ?>
+<?php endforeach;?>
+</div>
