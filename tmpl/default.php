@@ -61,4 +61,5 @@ $post_image = "";
 			break;
 		} ?>
 <?php endforeach;?>
+<a href="http://news.utep.edu/" class="btn btn-default">More News</a>
 </div>
