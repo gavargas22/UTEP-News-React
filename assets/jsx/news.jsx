@@ -93,9 +93,9 @@ var Slides = React.createClass({
 		});
 		return(
 			<div className="slides row">
-				<div className="col-lg-1 hidden-xs hidden-sm slide-control"><i className="fa fa-angle-left left"></i></div>
+				<div className="col-lg-1 hidden-xs hidden-sm slide-control hidden"><i className="fa fa-angle-left left"></i></div>
 				{slidesNodes}
-				<div className="col-lg-1 hidden-xs hidden-sm slide-control"><i className="fa fa-angle-right right"></i></div>
+				<div className="col-lg-1 hidden-xs hidden-sm slide-control hidden"><i className="fa fa-angle-right right"></i></div>
 			</div>
 		);
 	}
@@ -104,7 +104,8 @@ var Slides = React.createClass({
 var Article = React.createClass({
 	render: function() {
 		// Hide the loading graphic
-		jQuery('#loading-graphic').addClass('hidden');
+		jQuery('.slide-control').addClass('hidden');
+		jQuery('.slide-control').removeClass('hidden');
 		var classes = React.addons.classSet({
 			'slide': true,
 			'active': this.props.active
