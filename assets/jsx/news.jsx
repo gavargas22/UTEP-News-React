@@ -104,7 +104,7 @@ var Slides = React.createClass({
 var Article = React.createClass({
 	render: function() {
 		// Hide the loading graphic
-		jQuery('.slide-control').addClass('hidden');
+		jQuery('#loading-graphic').addClass('hidden');
 		jQuery('.slide-control').removeClass('hidden');
 		var classes = React.addons.classSet({
 			'slide': true,

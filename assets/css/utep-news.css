@@ -116,7 +116,7 @@
 .center-custom-nav-tabs > li > a:hover {
 	border-color: transparent;
 	background-color: #fff;
-	color: #f4831f;
+	color: #f4831f !important;
 }
 .center-custom-nav-tabs {
 	text-align: center;
@@ -150,4 +150,11 @@ a.btn-more:hover {
 	position: absolute;
 	right: 15px;
 	bottom: 5px;
+}
+.tab-content.utep-news-tab>.active {
+    display: block;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    padding: 20px;
 }

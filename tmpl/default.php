@@ -31,7 +31,7 @@
 			<img src="<?php echo JUri::root() . 'media/mod_utepnews/assets/images/loading.gif'; ?>"/>
 			<h4>Loading</h4>
 		</div>
-		<div class="tab-content">
+		<div class="tab-content utep-news-tab">
 			<div role="tabpanel" class="tab-pane active" id="home">
 				<div id="news-content"></div>
 				<div class="bottom-btn">
@@ -39,7 +39,6 @@
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="profile">
-				<!-- <h1 style="color:#ff8200;">LATEST EVENTS</h1> -->
 				<div id="events-content"></div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="messages">...</div>
