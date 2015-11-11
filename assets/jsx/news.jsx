@@ -10,7 +10,7 @@ var actions = {
 			next = 0;
 		}
 		slideState.currentSlide = next;
-		// render();
+		render();
 	},
 	togglePrev: function() {
 		console.log("Previous Button Triggered");
@@ -20,7 +20,7 @@ var actions = {
 			prev = slideState.stories.length - 1;
 		}
 		slideState.currentSlide = prev;
-		// render();
+		render();
 	},
 	toggleSlide: function(id) {
 		console.log("Slide Toggle");
@@ -31,7 +31,7 @@ var actions = {
 		});
 		var currentIndex = index.indexOf(id);
 		slideState.currentSlide = currentIndex;
-		// render();
+		render();
 	}
 }
 
@@ -42,12 +42,11 @@ var NewsBox = React.createClass({
 			dataType: 'json',
 			cache: false,
 			beforeSend: function() {
-				// jQuery('#loading-graphic').addClass('hidden');
 			},
 			success: function(data) {
-				var topNews =[], size = 2;
+				var topNews =[], size = 9;
 				topNews = data.slice(0, size);
-				this.setState({data: topNews});
+				this.setState({data: topNews, pageNum: 1});
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
@@ -60,6 +59,40 @@ var NewsBox = React.createClass({
 	componentDidMount: function() {
 		this.loadNewsFromServer();
 		setInterval(this.loadNewsFromServer, this.props.pollInterval);
+	},
+	componentDidUpdate: function() {
+		jQuery('.slides').slick({
+	    dots: true,
+	    infinite: false,
+	    speed: 300,
+	    slidesToShow: 3,
+	    slidesToScroll: 3,
+	    responsive: [{
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: 3,
+	        slidesToScroll: 3,
+	        infinite: true,
+	        dots: true
+	      }
+	    }, {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 2
+	      }
+	    }, {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	    // You can unslick at a given breakpoint now by adding:
+	    // settings: "unslick"
+	    // instead of a settings object
+	    ]
+	  });
 	},
 	render: function() {
 		return (
@@ -93,9 +126,7 @@ var Slides = React.createClass({
 		});
 		return(
 			<div className="slides row">
-				<div className="col-lg-1 hidden-xs hidden-sm slide-control hidden"><i className="fa fa-angle-left left"></i></div>
 				{slidesNodes}
-				<div className="col-lg-1 hidden-xs hidden-sm slide-control hidden"><i className="fa fa-angle-right right"></i></div>
 			</div>
 		);
 	}
@@ -110,7 +141,7 @@ var Article = React.createClass({
 			'slide': true,
 			'active': this.props.active
 		});
-		var classNames = "col-sm-5 item article-wrapper";
+		var classNames = "col-sm-4 item article-wrapper";
 		if (this.props.active == true) {
 			classNames += ' active';
 		}
