@@ -93,6 +93,9 @@ var NewsBox = React.createClass({
 	    // instead of a settings object
 	    ]
 	  });
+			jQuery(".article-title-excerpt").dotdotdot({
+				//	configuration goes here
+			});
 	},
 	render: function() {
 		return (
@@ -149,10 +152,16 @@ var Article = React.createClass({
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
 		};
+		var orangeStripCustomStyle = {
+			'width': 65,
+			'height': 2,
+			'marginTop': 15
+		};
 		return (
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
 					<div className="news-article-image" style={articleImageStyle}></div>
+					<div className="orange-strip" style={orangeStripCustomStyle}></div>
 					<div className="article-title-text">{this.props.articleTitle}</div>
 					<div className="article-title-excerpt hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
 				</a>

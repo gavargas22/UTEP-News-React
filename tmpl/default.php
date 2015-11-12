@@ -41,7 +41,7 @@
 			<div role="tabpanel" class="tab-pane active" id="home">
 				<div id="news-content"></div>
 				<div class="bottom-btn">
-					<a href="http://news.utep.edu" class="btn btn-primary btn-more btn-sm" role="button">More News</a>
+					<a href="http://news.utep.edu" class="btn btn-default btn-sm" role="button">More News</a>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="profile">
