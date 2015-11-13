@@ -21,7 +21,7 @@ var EventsBox = React.createClass({
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
-				var topEvents =[], size = 2;
+				var topEvents =[], size = 6;
 				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
@@ -36,6 +36,46 @@ var EventsBox = React.createClass({
 	componentDidMount: function() {
 		this.loadEventsFromServer();
 		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
+	},
+	componentDidUpdate: function() {
+		jQuery('.events-paginated').slick({
+	    dots: true,
+	    infinite: false,
+	    speed: 300,
+	    slidesToShow: 2,
+	    slidesToScroll: 2,
+	    responsive: [{
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: 3,
+	        slidesToScroll: 3,
+	        infinite: true,
+	        dots: true
+	      }
+	    }, {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 2
+	      }
+	    }, {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+					centerPadding: '40px;',
+					arrows: false
+
+	      }
+	    }
+	    // You can unslick at a given breakpoint now by adding:
+	    // settings: "unslick"
+	    // instead of a settings object
+	    ]
+	  });
+			jQuery(".article-title-excerpt").dotdotdot({
+				//	configuration goes here
+			});
 	},
 	render: function() {
 		return (
@@ -72,7 +112,7 @@ var EventSlides = React.createClass({
 			);
 		});
 		return(
-			<div className="row" style={eventsRowStyle}>
+			<div className="row events-paginated" style={eventsRowStyle}>
 				{eventNodes}
 			</div>
 		);
