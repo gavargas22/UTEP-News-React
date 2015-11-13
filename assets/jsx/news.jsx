@@ -61,44 +61,52 @@ var NewsBox = React.createClass({
 		setInterval(this.loadNewsFromServer, this.props.pollInterval);
 	},
 	componentDidUpdate: function() {
-		jQuery('.slides').slick({
-	    dots: true,
-	    infinite: false,
-	    speed: 300,
-	    slidesToShow: 2,
-	    slidesToScroll: 2,
-	    responsive: [{
-	      breakpoint: 1024,
-	      settings: {
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
-	        infinite: true,
-	        dots: true
-	      }
-	    }, {
-	      breakpoint: 600,
-	      settings: {
-	        slidesToShow: 2,
-	        slidesToScroll: 2
-	      }
-	    }, {
-	      breakpoint: 480,
-	      settings: {
-	        slidesToShow: 1,
-	        slidesToScroll: 1,
-					centerPadding: '40px;',
-					arrows: false
+		// Pagination of News Articles
+		// Check to see if the element already has the slick class
+	  if (jQuery('.slides').hasClass('slick-initialized')) {
+	    // Do nothing
+	  } else {
+	    // Otherwise, apply slick.
+	    jQuery('.slides').slick({
+		    dots: true,
+		    infinite: false,
+		    speed: 300,
+		    slidesToShow: 2,
+		    slidesToScroll: 2,
+		    responsive: [{
+		      breakpoint: 1024,
+		      settings: {
+		        slidesToShow: 3,
+		        slidesToScroll: 3,
+		        infinite: true,
+		        dots: true
+		      }
+		    }, {
+		      breakpoint: 600,
+		      settings: {
+		        slidesToShow: 2,
+		        slidesToScroll: 2
+		      }
+		    }, {
+		      breakpoint: 480,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+						centerPadding: '40px;',
+						arrows: false
 
-	      }
-	    }
-	    // You can unslick at a given breakpoint now by adding:
-	    // settings: "unslick"
-	    // instead of a settings object
-	    ]
-	  });
-			jQuery(".article-title-excerpt").dotdotdot({
-				//	configuration goes here
-			});
+		      }
+		    }
+		    // You can unslick at a given breakpoint now by adding:
+		    // settings: "unslick"
+		    // instead of a settings object
+		    ]
+		  });
+	  }
+		// Ellipsis
+		jQuery(".article-title-excerpt").dotdotdot({
+			//	configuration goes here
+		});
 	},
 	render: function() {
 		return (
