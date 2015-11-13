@@ -92,19 +92,11 @@ var EventElement = React.createClass({
 			'marginTop': 15
 		};
 		return (
-			// <div className={classNames} >
-			// 	<a href={this.props.articleLink}>
-			// 		<div className="news-article-image" style={articleImageStyle}></div>
-			// 		<div className="orange-strip" style={orangeStripCustomStyle}></div>
-			// 		<div className="article-title-text">{this.props.articleTitle}</div>
-			// 		<div className="article-title-excerpt hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
-			// 	</a>
-			// </div>
 
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
 
-					<div className="col-lg-6 event-icon" style={articleImageStyle}>
+					<div className="col-lg-12 event-icon" style={articleImageStyle}>
 						<div className="picture-date-wrapper">
 							<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
 							<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
@@ -114,10 +106,6 @@ var EventElement = React.createClass({
 						<div className="article-title-text">{this.props.articleTitle}</div>
 
 					</div>
-
-					// <div className="col-lg-6">
-					// 	<div className="event-date-title">{this.props.articleTitle}</div>
-					// </div>
 
 				</a>
 			</div>
