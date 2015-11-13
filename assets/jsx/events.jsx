@@ -102,9 +102,10 @@ var EventElement = React.createClass({
 							<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
 						</div>
 					</div>
-					<div className="orange-strip" style={orangeStripCustomStyle}></div>
-					<div className="article-title-text">{this.props.articleTitle}</div>
-
+					<div className="col-lg-12 event-info-wrapper">
+						<div className="orange-strip" style={orangeStripCustomStyle}></div>
+						<div className="article-title-text">{this.props.articleTitle}</div>
+					</div>
 				</a>
 			</div>
 		)
