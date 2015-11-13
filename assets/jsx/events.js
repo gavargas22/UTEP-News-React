@@ -99,12 +99,10 @@ var EventElement = React.createClass({displayName: "EventElement",
 						React.createElement("div", {className: "picture-date-wrapper"}, 
 							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
 							React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
-						), 
-
-						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
-						React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
-
-					)
+						)
+					), 
+					React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+					React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
 
 				)
 			)
