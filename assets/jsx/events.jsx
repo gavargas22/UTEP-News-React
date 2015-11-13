@@ -21,7 +21,7 @@ var EventsBox = React.createClass({
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
-				var topEvents =[], size = 2;
+				var topEvents =[], size = 9;
 				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
@@ -36,6 +36,13 @@ var EventsBox = React.createClass({
 	componentDidMount: function() {
 		this.loadEventsFromServer();
 		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
+	},
+	componentDidUpdate: function() {
+		jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
+		  if (e.target.hash == "#events") {
+		      paginateEvents();
+		  }
+		});
 	},
 	render: function() {
 		return (
@@ -68,11 +75,11 @@ var EventSlides = React.createClass({
 				evt.icon = "default.png";
 			}
 			return (
-				<EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={imageServerURLPrefix.concat(evt.icon)} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
+				<EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={"'" + imageServerURLPrefix.concat(evt.icon) + "'"} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
 			);
 		});
 		return(
-			<div className="row" style={eventsRowStyle}>
+			<div className="row events-paginated" style={eventsRowStyle}>
 				{eventNodes}
 			</div>
 		);

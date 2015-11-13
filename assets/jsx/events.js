@@ -20,7 +20,7 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
-				var topEvents =[], size = 2;
+				var topEvents =[], size = 9;
 				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
@@ -35,6 +35,13 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 	componentDidMount: function() {
 		this.loadEventsFromServer();
 		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
+	},
+	componentDidUpdate: function() {
+		jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
+		  if (e.target.hash == "#events") {
+		      paginateEvents();
+		  }
+		});
 	},
 	render: function() {
 		return (
@@ -67,11 +74,11 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 				evt.icon = "default.png";
 			}
 			return (
-				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: imageServerURLPrefix.concat(evt.icon), articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
+				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + imageServerURLPrefix.concat(evt.icon) + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
 			);
 		});
 		return(
-			React.createElement("div", {className: "row", style: eventsRowStyle}, 
+			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle}, 
 				eventNodes
 			)
 		);

@@ -85,7 +85,10 @@ var NewsBox = React.createClass({
 	      breakpoint: 480,
 	      settings: {
 	        slidesToShow: 1,
-	        slidesToScroll: 1
+	        slidesToScroll: 1,
+					centerPadding: '40px;',
+					arrows: false
+
 	      }
 	    }
 	    // You can unslick at a given breakpoint now by adding:
