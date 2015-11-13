@@ -86,7 +86,21 @@ var EventElement = React.createClass({
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
 		};
+		var orangeStripCustomStyle = {
+			'width': 65,
+			'height': 2,
+			'marginTop': 15
+		};
 		return (
+			// <div className={classNames} >
+			// 	<a href={this.props.articleLink}>
+			// 		<div className="news-article-image" style={articleImageStyle}></div>
+			// 		<div className="orange-strip" style={orangeStripCustomStyle}></div>
+			// 		<div className="article-title-text">{this.props.articleTitle}</div>
+			// 		<div className="article-title-excerpt hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
+			// 	</a>
+			// </div>
+
 			<div className={classNames} >
 				<a href={this.props.articleLink}>
 
@@ -95,11 +109,15 @@ var EventElement = React.createClass({
 							<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
 							<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
 						</div>
+
+						<div className="orange-strip" style={orangeStripCustomStyle}></div>
+						<div className="article-title-text">{this.props.articleTitle}</div>
+
 					</div>
 
-					<div className="col-lg-6">
-						<div className="event-date-title">{this.props.articleTitle}</div>
-					</div>
+					// <div className="col-lg-6">
+					// 	<div className="event-date-title">{this.props.articleTitle}</div>
+					// </div>
 
 				</a>
 			</div>
