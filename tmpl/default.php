@@ -25,9 +25,9 @@
 	<div class="container-fluid center-tabs-background">
 		<div class="container">
 			<ul class="nav nav-tabs center-custom-nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">NEWS</a></li>
-				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">EVENTS</a></li>
-				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">MAJORS &amp; PROGRAMS</a></li>
+				<li role="presentation" class="active"><a href="#news" aria-controls="home" role="tab" data-toggle="tab" class="home-information-tabs">NEWS</a></li>
+				<li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="home-information-tabs">EVENTS</a></li>
+				<li role="presentation"><a href="#majorsprograms" aria-controls="messages" role="tab" data-toggle="tab" class="home-information-tabs">MAJORS &amp; PROGRAMS</a></li>
 			</ul>
 		</div>
 	</div>
@@ -38,16 +38,16 @@
 			<h4>Loading</h4>
 		</div>
 		<div class="tab-content utep-news-tab">
-			<div role="tabpanel" class="tab-pane active" id="home">
+			<div role="tabpanel" class="tab-pane active" id="news">
 				<div id="news-content"></div>
 				<div class="bottom-btn">
 					<a href="http://news.utep.edu" class="btn btn-default btn-sm" role="button">More News</a>
 				</div>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="profile">
+			<div role="tabpanel" class="tab-pane" id="events">
 				<div id="events-content"></div>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="messages">...</div>
+			<div role="tabpanel" class="tab-pane" id="majorsprograms">...</div>
 		</div>
 
 	</div>

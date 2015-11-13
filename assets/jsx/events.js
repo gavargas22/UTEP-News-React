@@ -1,4 +1,3 @@
-// Months Array
 var months = [
 	"Jan",
 	"Feb",
@@ -14,7 +13,7 @@ var months = [
 	"Dec"
 ];
 
-var EventsBox = React.createClass({
+var EventsBox = React.createClass({displayName: "EventsBox",
 	loadEventsFromServer: function() {
 		jQuery.ajax({
 			url: this.props.url,
@@ -46,22 +45,22 @@ var EventsBox = React.createClass({
 	},
 	render: function() {
 		return (
-			<EventsList data={this.state.data} />
+			React.createElement(EventsList, {data: this.state.data})
 		);
 	}
 });
 
-var EventsList = React.createClass({
+var EventsList = React.createClass({displayName: "EventsList",
 	render: function() {
 		return (
-			<div className="events-list">
-				<EventSlides data={this.props.data}></EventSlides>
-			</div>
+			React.createElement("div", {className: "events-list"}, 
+				React.createElement(EventSlides, {data: this.props.data})
+			)
 		);
 	}
 });
 
-var EventSlides = React.createClass({
+var EventSlides = React.createClass({displayName: "EventSlides",
 	render: function() {
 		var eventsRowStyle = {
 			marginLeft: 160,
@@ -75,18 +74,18 @@ var EventSlides = React.createClass({
 				evt.icon = "default.png";
 			}
 			return (
-				<EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={"'" + imageServerURLPrefix.concat(evt.icon) + "'"} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
+				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + imageServerURLPrefix.concat(evt.icon) + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
 			);
 		});
 		return(
-			<div className="row events-paginated" style={eventsRowStyle}>
-				{eventNodes}
-			</div>
+			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle}, 
+				eventNodes
+			)
 		);
 	}
 });
 
-var EventElement = React.createClass({
+var EventElement = React.createClass({displayName: "EventElement",
 	render: function() {
 		var classNames = "col-sm-6 item";
 		var articleImageStyle = {
@@ -100,21 +99,21 @@ var EventElement = React.createClass({
 		};
 		return (
 
-			<div className={classNames} >
-				<a href={this.props.articleLink}>
+			React.createElement("div", {className: classNames}, 
+				React.createElement("a", {href: this.props.articleLink}, 
 
-					<div className="col-lg-12 event-icon" style={articleImageStyle}>
-						<div className="picture-date-wrapper">
-							<div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
-							<div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
-						</div>
-					</div>
-					<div className="col-lg-12 event-info-wrapper no-padding">
-						<div className="orange-strip" style={orangeStripCustomStyle}></div>
-						<div className="article-title-text">{this.props.articleTitle}</div>
-					</div>
-				</a>
-			</div>
+					React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
+						React.createElement("div", {className: "picture-date-wrapper"}, 
+							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
+							React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
+						)
+					), 
+					React.createElement("div", {className: "col-lg-12 event-info-wrapper no-padding"}, 
+						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+						React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
+					)
+				)
+			)
 		)
 	}
 });
@@ -122,7 +121,7 @@ var EventElement = React.createClass({
 
 
 
-React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={10000} />, document.getElementById('events-content') );
+React.render( React.createElement(EventsBox, {url: "http://events.utep.edu/index.php?option=com_eventsjson&format=json", eventPollInterval: 10000}), document.getElementById('events-content') );
 
 
 
