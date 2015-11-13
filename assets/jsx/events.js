@@ -1,12 +1,27 @@
+var months = [
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
+	"May",
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec"
+];
+
 var EventsBox = React.createClass({displayName: "EventsBox",
-	loadNewsFromServer: function() {
+	loadEventsFromServer: function() {
 		jQuery.ajax({
 			url: this.props.url,
 			dataType: 'json',
 			cache: false,
 			success: function(data) {
 				var topEvents =[], size = 2;
-				topEvents = data.slice(0, size);
+				topEvents = data.events.slice(0, size);
 				this.setState({data: topEvents});
 			}.bind(this),
 			error: function(xhr, status, err) {
@@ -19,66 +34,77 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 	},
 	componentDidMount: function() {
 		this.loadEventsFromServer();
-		setInterval(this.loadEventsFromServer, this.props.pollInterval);
+		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
 	},
 	render: function() {
 		return (
-			React.createElement(NewsList, {data: this.state.data})
+			React.createElement(EventsList, {data: this.state.data})
 		);
 	}
 });
 
-var NewsList = React.createClass({displayName: "NewsList",
+var EventsList = React.createClass({displayName: "EventsList",
 	render: function() {
 		return (
-			React.createElement("div", {className: "newslist"},
-				React.createElement(Slides, {data: this.props.data})
+			React.createElement("div", {className: "events-list"}, 
+				React.createElement(EventSlides, {data: this.props.data})
 			)
 		);
 	}
 });
 
-var Slides = React.createClass({displayName: "Slides",
+var EventSlides = React.createClass({displayName: "EventSlides",
 	render: function() {
-		var defaultImageURL = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
-		var slidesNodes = this.props.data.map(function (article, index) {
-			if (article.featured_image_thumbnail_url == null) {
-				article.imagePath = defaultImageURL;
-				article.featured_image_thumbnail_url = defaultImageURL;
+		var eventsRowStyle = {
+			marginLeft: 160,
+			marginRight: 160
+		};
+		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
+		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
+		var defaultImageURL = "http://dev.utep.edu/media/mod_utepnews/assets/images/default.jpg";
+		var eventNodes = this.props.data.map(function (evt, index) {
+			if (evt.icon == "") {
+				evt.icon = "default.png";
 			}
-			var isActive = slideState.currentSlide === index;
 			return (
-				React.createElement(Article, {active: isActive, articleLink: article.link, imagePath: article.featured_image_thumbnail_url, articleTitle: article.title, articleExcerpt: article.excerpt.rendered, key: index})
+				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: imageServerURLPrefix.concat(evt.icon), articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
 			);
 		});
 		return(
-			React.createElement("div", {className: "slides row"},
-				slidesNodes
+			React.createElement("div", {className: "row", style: eventsRowStyle}, 
+				eventNodes
 			)
 		);
 	}
 });
 
-var Article = React.createClass({displayName: "Article",
+var EventElement = React.createClass({displayName: "EventElement",
 	render: function() {
-		var classes = React.addons.classSet({
-			'slide': true,
-			'active': this.props.active
-		});
-		var classNames = "col-sm-6 item article-wrapper";
-		if (this.props.active == true) {
-			classNames += ' active';
-		}
+		var classNames = "col-sm-6 item";
 		var articleImageStyle = {
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
 		};
+		var orangeStripCustomStyle = {
+			'width': 65,
+			'height': 2,
+			'marginTop': 15
+		};
 		return (
-			React.createElement("div", {className: classNames},
-				React.createElement("a", {href: this.props.articleLink},
-					React.createElement("div", {className: "news-article-image", style: articleImageStyle}),
-					React.createElement("div", {className: "article-title-text"}, this.props.articleTitle),
-					React.createElement("div", {className: "article-title-excerpt", dangerouslySetInnerHTML: {__html: this.props.articleExcerpt}})
+
+			React.createElement("div", {className: classNames}, 
+				React.createElement("a", {href: this.props.articleLink}, 
+
+					React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
+						React.createElement("div", {className: "picture-date-wrapper"}, 
+							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
+							React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
+						)
+					), 
+					React.createElement("div", {className: "col-lg-12 event-info-wrapper no-padding"}, 
+						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+						React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
+					)
 				)
 			)
 		)
@@ -86,18 +112,11 @@ var Article = React.createClass({displayName: "Article",
 });
 //////////////////////////////////////////////////////
 
-var EmptyMessage = React.createClass({displayName: "EmptyMessage",
-	render: function() {
-		return (
-			React.createElement("div", {className: "empty-message"}, "No Data")
-		);
-	}
-});
 
 
-React.render( React.createElement(NewsBox, {url: "http://events.utep.edu/index.php?option=com_eventsjson&format=json", pollInterval: 2000}), document.getElementById('news-content') );
+React.render( React.createElement(EventsBox, {url: "http://events.utep.edu/index.php?option=com_eventsjson&format=json", eventPollInterval: 10000}), document.getElementById('events-content') );
 
 
 
-// http://news.utep.edu/wp-json/wp/v2/posts/?filter[category]=2
-// http://news.utep.edu/?rest_route=/wp/v2/posts
+	// http://news.utep.edu/wp-json/wp/v2/posts/?filter[category]=2
+	// http://news.utep.edu/?rest_route=/wp/v2/posts
