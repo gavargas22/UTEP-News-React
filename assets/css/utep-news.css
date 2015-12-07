@@ -32,6 +32,22 @@
 	height:100px;
 	overflow: hidden;
 }
+.article-wrapper  {
+  padding: 0;
+}
+
+@media only screen and (min-width : 992px) {
+  .article-wrapper  {
+    padding: 0 100px;
+  }
+}
+
+    /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .article-wrapper  {
+    padding: 0 100px;
+  }
+}
 .article-wrapper a {
 	font-weight: bold;
 	font-size: 14px;
