@@ -201,9 +201,9 @@ a.btn-more:hover {
 	}
 }
 .no-outline {
-	border: none;
-	border-bottom: none;
-	border-top: none;
+	border: none !important;
+	border-bottom: none !important;
+	border-top: none !important;
 	}
 }
 /*.tab-content.utep-news-tab>.active {
