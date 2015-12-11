@@ -79,7 +79,7 @@ var EventSlides = React.createClass({
 			);
 		});
 		return(
-			<div className="row events-paginated" style={eventsRowStyle}>
+			<div className="row events-paginated">
 				{eventNodes}
 			</div>
 		);
