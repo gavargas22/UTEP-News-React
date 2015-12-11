@@ -62,8 +62,7 @@ var EventsList = React.createClass({displayName: "EventsList",
 
 var EventSlides = React.createClass({displayName: "EventSlides",
 	render: function() {
-		var eventsRowStyle = {
-		};
+		var eventsRowStyle = {};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
 		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
 		var defaultImageURL = "http://dev.utep.edu/media/mod_utepnews/assets/images/default.jpg";
@@ -76,7 +75,7 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 			);
 		});
 		return(
-			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle},
+			React.createElement("div", {className: "row events-paginated"},
 				eventNodes
 			)
 		);
