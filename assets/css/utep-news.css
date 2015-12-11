@@ -167,10 +167,44 @@ a.btn-more:hover {
 	right: 15px;
 	bottom: 5px;
 }
-.tab-content.utep-news-tab>.active {
+
+/*Responsive Padding*/
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+	.tab-content.utep-news-tab>.active {
+    display: block;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    padding: 20px 0;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.tab-content.utep-news-tab>.active {
+	    display: block;
+	    border: none;
+	    border-bottom: none;
+	    border-top: none;
+	    padding: 20px 210px;
+	}
+}
+
+/*.tab-content.utep-news-tab>.active {
     display: block;
     border: none;
     border-bottom: none;
     border-top: none;
     padding: 20px 210px;
-}
+}*/
