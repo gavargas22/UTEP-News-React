@@ -53,7 +53,7 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 var EventsList = React.createClass({displayName: "EventsList",
 	render: function() {
 		return (
-			React.createElement("div", {className: "events-list"}, 
+			React.createElement("div", {className: "events-list"},
 				React.createElement(EventSlides, {data: this.props.data})
 			)
 		);
@@ -63,8 +63,6 @@ var EventsList = React.createClass({displayName: "EventsList",
 var EventSlides = React.createClass({displayName: "EventSlides",
 	render: function() {
 		var eventsRowStyle = {
-			marginLeft: 160,
-			marginRight: 160
 		};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
 		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
@@ -78,7 +76,7 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 			);
 		});
 		return(
-			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle}, 
+			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle},
 				eventNodes
 			)
 		);
@@ -99,17 +97,17 @@ var EventElement = React.createClass({displayName: "EventElement",
 		};
 		return (
 
-			React.createElement("div", {className: classNames}, 
-				React.createElement("a", {href: this.props.articleLink}, 
+			React.createElement("div", {className: classNames},
+				React.createElement("a", {href: this.props.articleLink},
 
-					React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
-						React.createElement("div", {className: "picture-date-wrapper"}, 
-							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
+					React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle},
+						React.createElement("div", {className: "picture-date-wrapper"},
+							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]),
 							React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
 						)
-					), 
-					React.createElement("div", {className: "col-lg-12 event-info-wrapper no-padding"}, 
-						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+					),
+					React.createElement("div", {className: "col-lg-12 event-info-wrapper no-padding"},
+						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}),
 						React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
 					)
 				)
