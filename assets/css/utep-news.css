@@ -200,7 +200,12 @@ a.btn-more:hover {
 	    padding: 20px 210px;
 	}
 }
-
+.no-outline {
+	border: none;
+	border-bottom: none;
+	border-top: none;
+	}
+}
 /*.tab-content.utep-news-tab>.active {
     display: block;
     border: none;

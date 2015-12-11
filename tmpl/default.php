@@ -43,16 +43,16 @@
 			<h4>Loading</h4>
 		</div>
 		<div class="tab-content utep-news-tab">
-			<div role="tabpanel" class="tab-pane active" id="news">
+			<div role="tabpanel" class="tab-pane no-outline active" id="news">
 				<div id="news-content"></div>
 				<div class="bottom-btn">
 					<a href="http://news.utep.edu" class="btn btn-default btn-sm" role="button">More News</a>
 				</div>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="events">
+			<div role="tabpanel" class="tab-pane no-outline" id="events">
 				<div id="events-content"></div>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="majorsprograms">...</div>
+			<div role="tabpanel" class="tab-pane no-outline" id="majorsprograms">...</div>
 		</div>
 
 	</div>
