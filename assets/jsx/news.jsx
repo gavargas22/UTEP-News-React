@@ -174,7 +174,6 @@ var Article = React.createClass({
 					<div className="news-article-image" style={articleImageStyle}></div>
 					<div className="orange-strip" style={orangeStripCustomStyle}></div>
 					<div className="article-title-text">{this.props.articleTitle}</div>
-					<div className="article-title-excerpt hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.props.articleExcerpt}}></div>
 				</a>
 			</div>
 		)
