@@ -166,14 +166,15 @@ var Article = React.createClass({
 		var orangeStripCustomStyle = {
 			'width': 65,
 			'height': 4,
-			'marginTop': 15
+			'marginTop': 15,
+			'marginLeft': 10
 		};
 		return (
 			<div className={classNames} >
 				<div className="news-article-image" style={articleImageStyle}></div>
 				<div className="orange-strip" style={orangeStripCustomStyle}></div>
 				<div className="article-title-text">{this.props.articleTitle}</div>
-				<div className="article-more-button"><a href={this.props.articleLink}>READ MORE</a></div>
+				<div className="article-more-button"><a href={this.props.articleLink}>READ MORE ></a></div>
 			</div>
 		)
 	}
