@@ -89,11 +89,11 @@
 }
 .slick-prev:before
 {
-    content: '\f105';
+    content: '\f104';
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '\f105';
+    content: '\f104';
 }
 
 .slick-next
