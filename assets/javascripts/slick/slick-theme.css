@@ -107,11 +107,11 @@
 }
 .slick-next:before
 {
-    content: '\f054';
+    content: '\f105';
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '\f054';
+    content: '\f105';
 }
 
 /* Dots */
