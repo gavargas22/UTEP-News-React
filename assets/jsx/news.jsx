@@ -167,7 +167,7 @@ var Article = React.createClass({
 			'width': 65,
 			'height': 2,
 			'marginTop': 15,
-			'marginLeft': 10
+			'marginLeft': 15
 		};
 		return (
 			<div className={classNames} >
