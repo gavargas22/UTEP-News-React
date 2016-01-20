@@ -56,7 +56,7 @@
 			<div role="tabpanel" class="tab-pane no-outline active" id="news">
 				<div id="news-content"></div>
 				<div class="bottom-btn">
-					<a href="http://news.utep.edu" class="btn btn-default btn-sm" role="button">More News</a>
+					<a href="http://news.utep.edu"><p style="font-family:'Tungsten A', 'Tungsten B';font-size:20px;font-weight:700;text-transform:uppercase;>More News</p></a>
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane no-outline" id="events">
