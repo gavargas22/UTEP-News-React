@@ -61,6 +61,9 @@
 			</div>
 			<div role="tabpanel" class="tab-pane no-outline" id="events">
 				<div id="events-content"></div>
+				<div class="bottom-btn">
+					<a href="http://events.utep.edu">More Events</a>
+				</div>
 			</div>
 			<div role="tabpanel" class="tab-pane no-outline" id="majorsprograms">...</div>
 		</div>
