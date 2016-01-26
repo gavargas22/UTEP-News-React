@@ -53,7 +53,7 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 var EventsList = React.createClass({displayName: "EventsList",
 	render: function() {
 		return (
-			React.createElement("div", {className: "events-list"},
+			React.createElement("div", {className: "events-list"}, 
 				React.createElement(EventSlides, {data: this.props.data})
 			)
 		);
@@ -63,6 +63,8 @@ var EventsList = React.createClass({displayName: "EventsList",
 var EventSlides = React.createClass({displayName: "EventSlides",
 	render: function() {
 		var eventsRowStyle = {
+			marginLeft: 160,
+			marginRight: 160
 		};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
 		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
@@ -76,7 +78,7 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 			);
 		});
 		return(
-			React.createElement("div", {className: "row events-paginated", style: eventsRowStyle},
+			React.createElement("div", {className: "row events-paginated"}, 
 				eventNodes
 			)
 		);
@@ -85,7 +87,7 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 
 var EventElement = React.createClass({displayName: "EventElement",
 	render: function() {
-		var classNames = "col-sm-6 item";
+		var classNames = "col-sm-4 item event-wrapper";
 		var articleImageStyle = {
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
@@ -93,24 +95,23 @@ var EventElement = React.createClass({displayName: "EventElement",
 		var orangeStripCustomStyle = {
 			'width': 65,
 			'height': 2,
-			'marginTop': 15
+			'marginTop': 135,
+			'marginLeft': 16
 		};
 		return (
 
-			React.createElement("div", {className: classNames},
-				React.createElement("a", {href: this.props.articleLink},
+			React.createElement("div", {className: classNames}, 
 
-					React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle},
-						React.createElement("div", {className: "picture-date-wrapper"},
-							React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]),
-							React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
-						)
-					),
-					React.createElement("div", {className: "col-lg-12 event-info-wrapper no-padding"},
-						React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}),
-						React.createElement("div", {className: "article-title-text"}, this.props.articleTitle)
+				React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
+					React.createElement("div", {className: "picture-date-wrapper"}, 
+						React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
+						React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
 					)
-				)
+				), 
+				React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+				React.createElement("div", {className: "event-title-text"}, this.props.articleTitle), 
+				React.createElement("div", {className: "event-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
+
 			)
 		)
 	}

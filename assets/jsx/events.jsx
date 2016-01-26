@@ -96,7 +96,8 @@ var EventElement = React.createClass({
 		var orangeStripCustomStyle = {
 			'width': 65,
 			'height': 2,
-			'marginTop': 15
+			'marginTop': 135,
+			'marginLeft': 16
 		};
 		return (
 
