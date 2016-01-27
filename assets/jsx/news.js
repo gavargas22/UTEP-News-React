@@ -1,8 +1,3 @@
-// There is a newsbox that contains
-// A set of 4 3 slides
-// Each slide contains two Articles
-
-var slideState = {currentSlide:0, stories:[0,1,2,3,4,5,6,7,8,9]}
 
 // State transitions
 var actions = {
@@ -14,7 +9,7 @@ var actions = {
 			next = 0;
 		}
 		slideState.currentSlide = next;
-		// render();
+		render();
 	},
 	togglePrev: function() {
 		console.log("Previous Button Triggered");
@@ -24,7 +19,7 @@ var actions = {
 			prev = slideState.stories.length - 1;
 		}
 		slideState.currentSlide = prev;
-		// render();
+		render();
 	},
 	toggleSlide: function(id) {
 		console.log("Slide Toggle");
@@ -35,7 +30,7 @@ var actions = {
 		});
 		var currentIndex = index.indexOf(id);
 		slideState.currentSlide = currentIndex;
-		// render();
+		render();
 	}
 }
 
@@ -45,10 +40,12 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 			url: this.props.url,
 			dataType: 'json',
 			cache: false,
+			beforeSend: function() {
+			},
 			success: function(data) {
-				var topNews =[], size = 2;
+				var topNews =[], size = 9;
 				topNews = data.slice(0, size);
-				this.setState({data: topNews});
+				this.setState({data: topNews, pageNum: 1});
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
@@ -62,6 +59,55 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 		this.loadNewsFromServer();
 		setInterval(this.loadNewsFromServer, this.props.pollInterval);
 	},
+	componentDidUpdate: function() {
+		// Pagination of News Articles
+		// Check to see if the element already has the slick class
+	  if (jQuery('.slides').hasClass('slick-initialized')) {
+	    // Do nothing
+	  } else {
+	    // Otherwise, apply slick.
+	    jQuery('.slides').slick({
+		    dots: true,
+				customPaging:function() { return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>'; },
+		    infinite: false,
+		    speed: 300,
+		    slidesToShow: 3,
+		    slidesToScroll: 3,
+		    responsive: [{
+		      breakpoint: 1024,
+		      settings: {
+		        slidesToShow: 3,
+		        slidesToScroll: 3,
+		        infinite: true,
+		        dots: true
+		      }
+		    }, {
+		      breakpoint: 600,
+		      settings: {
+		        slidesToShow: 2,
+		        slidesToScroll: 2
+		      }
+		    }, {
+		      breakpoint: 480,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1,
+						centerPadding: '40px;',
+						arrows: false
+
+		      }
+		    }
+		    // You can unslick at a given breakpoint now by adding:
+		    // settings: "unslick"
+		    // instead of a settings object
+		    ]
+		  });
+	  }
+		// Ellipsis
+		jQuery(".article-title-excerpt").dotdotdot({
+			//	configuration goes here
+		});
+	},
 	render: function() {
 		return (
 			React.createElement(NewsList, {data: this.state.data})
@@ -72,7 +118,7 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 var NewsList = React.createClass({displayName: "NewsList",
 	render: function() {
 		return (
-			React.createElement("div", {className: "newslist"},
+			React.createElement("div", {className: "newslist"}, 
 				React.createElement(Slides, {data: this.props.data})
 			)
 		);
@@ -81,11 +127,12 @@ var NewsList = React.createClass({displayName: "NewsList",
 
 var Slides = React.createClass({displayName: "Slides",
 	render: function() {
-		var defaultImageURL = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
+		var defaultImageURL = "http://skunkworks.at.utep.edu/cdn/utep/defaultimages/news/";
+		// Array of names for the various images
+		var defaultImages = ["1.jpg", "2.jpg"];
 		var slidesNodes = this.props.data.map(function (article, index) {
 			if (article.featured_image_thumbnail_url == null) {
-				article.imagePath = defaultImageURL;
-				article.featured_image_thumbnail_url = defaultImageURL;
+				article.featured_image_thumbnail_url = defaultImageURL + defaultImages[Math.floor(Math.random()*defaultImages.length)];
 			}
 			var isActive = slideState.currentSlide === index;
 			return (
@@ -93,7 +140,7 @@ var Slides = React.createClass({displayName: "Slides",
 			);
 		});
 		return(
-			React.createElement("div", {className: "slides row"},
+			React.createElement("div", {className: "slides row"}, 
 				slidesNodes
 			)
 		);
@@ -102,11 +149,14 @@ var Slides = React.createClass({displayName: "Slides",
 
 var Article = React.createClass({displayName: "Article",
 	render: function() {
+		// Hide the loading graphic
+		jQuery('#loading-graphic').addClass('hidden');
+		jQuery('.slide-control').removeClass('hidden');
 		var classes = React.addons.classSet({
 			'slide': true,
 			'active': this.props.active
 		});
-		var classNames = "col-sm-6 item article-wrapper";
+		var classNames = "col-sm-4 item article-wrapper";
 		if (this.props.active == true) {
 			classNames += ' active';
 		}
@@ -114,13 +164,18 @@ var Article = React.createClass({displayName: "Article",
 			backgroundImage: 'url(' + this.props.imagePath + ')',
 			backgroundSize: 'cover'
 		};
+		var orangeStripCustomStyle = {
+			'width': 65,
+			'height': 2,
+			'marginTop': 15,
+			'marginLeft': 15
+		};
 		return (
-			React.createElement("div", {className: classNames},
-				React.createElement("a", {href: this.props.articleLink},
-					React.createElement("div", {className: "news-article-image", style: articleImageStyle}),
-					React.createElement("div", {className: "article-title-text"}, this.props.articleTitle),
-					React.createElement("div", {className: "article-title-excerpt", dangerouslySetInnerHTML: {__html: this.props.articleExcerpt}})
-				)
+			React.createElement("div", {className: classNames}, 
+				React.createElement("div", {className: "news-article-image", style: articleImageStyle}), 
+				React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+				React.createElement("div", {className: "article-title-text"}, this.props.articleTitle), 
+				React.createElement("div", {className: "article-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
 			)
 		)
 	}
@@ -136,9 +191,10 @@ var EmptyMessage = React.createClass({displayName: "EmptyMessage",
 });
 
 
-React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 2000}), document.getElementById('news-content') );
+
+React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 20000}), document.getElementById('news-content') );
 
 
 
-// http://news.utep.edu/wp-json/wp/v2/posts/?filter[category]=2
-// http://news.utep.edu/?rest_route=/wp/v2/posts
+	// http://news.utep.edu/wp-json/wp/v2/posts/?filter[category]=2
+	// http://news.utep.edu/?rest_route=/wp/v2/posts

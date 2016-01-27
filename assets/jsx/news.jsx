@@ -128,11 +128,12 @@ var NewsList = React.createClass({
 
 var Slides = React.createClass({
 	render: function() {
-		var defaultImageURL = "http://news.utep.edu/wp-content/uploads/2015/08/0825152MiningMinds_LT.gif";
+		var defaultImageURL = "http://skunkworks.at.utep.edu/cdn/utep/defaultimages/news/";
+		// Array of names for the various images
+		var defaultImages = ["1.jpg", "2.jpg"];
 		var slidesNodes = this.props.data.map(function (article, index) {
 			if (article.featured_image_thumbnail_url == null) {
-				article.imagePath = defaultImageURL;
-				article.featured_image_thumbnail_url = defaultImageURL;
+				article.featured_image_thumbnail_url = defaultImageURL + defaultImages[Math.floor(Math.random()*defaultImages.length)];
 			}
 			var isActive = slideState.currentSlide === index;
 			return (

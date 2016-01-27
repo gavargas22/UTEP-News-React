@@ -68,13 +68,19 @@ var EventSlides = React.createClass({displayName: "EventSlides",
 		};
 		var imageServerURLPrefix = "http://events.utep.edu/components/com_rseventspro/assets/images/events/";
 		var eventURLPrefix = "http://events.utep.edu/index.php/event/";
-		var defaultImageURL = "http://dev.utep.edu/media/mod_utepnews/assets/images/default.jpg";
+		var defaultEventImageURL = "http://skunkworks.at.utep.edu/cdn/utep/defaultimages/events/";
+
+		// Array of names for the various images
+		var defaultEventImages = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+
 		var eventNodes = this.props.data.map(function (evt, index) {
 			if (evt.icon == "") {
-				evt.icon = "default.png";
+				evt.icon = defaultEventImageURL + defaultEventImages[Math.floor(Math.random()*defaultEventImages.length)];
+			} else {
+				evt.icon = imageServerURLPrefix.concat(evt.icon);
 			}
 			return (
-				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + imageServerURLPrefix.concat(evt.icon) + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
+				React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + evt.icon + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
 			);
 		});
 		return(
