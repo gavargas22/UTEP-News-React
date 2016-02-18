@@ -131,9 +131,13 @@ var Slides = React.createClass({
 		var defaultImageURL = "http://skunkworks.at.utep.edu/cdn/utep/defaultimages/news/";
 		// Array of names for the various images
 		var defaultImages = ["1.jpg", "2.jpg"];
+		var nextImage = 0;
 		var slidesNodes = this.props.data.map(function (article, index) {
 			if (article.featured_image_thumbnail_url == null) {
-				article.featured_image_thumbnail_url = defaultImageURL + defaultImages[Math.floor(Math.random()*defaultImages.length)];
+				article.featured_image_thumbnail_url = defaultImageURL + defaultImages[nextImage++];
+				if(nextImage > 1) {
+					nextImage = 0;
+				}
 			}
 			var isActive = slideState.currentSlide === index;
 			return (
