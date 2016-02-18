@@ -73,10 +73,12 @@ var EventSlides = React.createClass({
 
 		// Array of names for the various images
 		var defaultEventImages = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+		var nextImage = 0;
 
 		var eventNodes = this.props.data.map(function (evt, index) {
 			if (evt.icon == "") {
-				evt.icon = defaultEventImageURL + defaultEventImages[Math.floor(Math.random()*defaultEventImages.length)];
+				evt.icon = defaultEventImageURL + defaultEventImages[nextImage++];
+				if nextImage > 3 nextImage = 0;
 			} else {
 				evt.icon = imageServerURLPrefix.concat(evt.icon);
 			}
