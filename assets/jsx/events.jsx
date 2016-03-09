@@ -36,11 +36,6 @@ var EventsBox = React.createClass({
 	componentDidMount: function() {
 		this.loadEventsFromServer();
 		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
-		jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
-		  if (e.target.hash == "#events") {
-		      paginateEvents();
-		  }
-		});
 	},
 	componentDidUpdate: function() {
 		jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
@@ -52,11 +47,6 @@ var EventsBox = React.createClass({
 	render: function() {
 		return (
 			<EventsList data={this.state.data} />
-			jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
-			  if (e.target.hash == "#events") {
-			      paginateEvents();
-			  }
-			});
 		);
 	}
 });
@@ -141,7 +131,7 @@ var EventElement = React.createClass({
 
 
 
-React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={3600} />, document.getElementById('events-content') );
+React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={3} />, document.getElementById('events-content') );
 
 
 
