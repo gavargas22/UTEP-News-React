@@ -66,6 +66,7 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 	    // Do nothing
 	  } else {
 	    // Otherwise, apply slick.
+			paginateEvents();
 	    jQuery('.slides').slick({
 		    dots: true,
 				customPaging:function() { return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>'; },
@@ -118,7 +119,7 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 var NewsList = React.createClass({displayName: "NewsList",
 	render: function() {
 		return (
-			React.createElement("div", {className: "newslist"},
+			React.createElement("div", {className: "newslist"}, 
 				React.createElement(Slides, {data: this.props.data})
 			)
 		);
@@ -144,7 +145,7 @@ var Slides = React.createClass({displayName: "Slides",
 			);
 		});
 		return(
-			React.createElement("div", {className: "slides row"},
+			React.createElement("div", {className: "slides row"}, 
 				slidesNodes
 			)
 		);
@@ -175,10 +176,10 @@ var Article = React.createClass({displayName: "Article",
 			'marginLeft': 15
 		};
 		return (
-			React.createElement("div", {className: classNames},
-				React.createElement("div", {className: "news-article-image", style: articleImageStyle}),
-				React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}),
-				React.createElement("div", {className: "article-title-text"}, this.props.articleTitle),
+			React.createElement("div", {className: classNames}, 
+				React.createElement("div", {className: "news-article-image", style: articleImageStyle}), 
+				React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+				React.createElement("div", {className: "article-title-text"}, this.props.articleTitle), 
 				React.createElement("div", {className: "article-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
 			)
 		)
@@ -196,7 +197,7 @@ var EmptyMessage = React.createClass({displayName: "EmptyMessage",
 
 
 
-React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 3600}), jQuery('#news-content') );
+React.render( React.createElement(NewsBox, {url: "http://news.utep.edu/?rest_route=/wp/v2/posts", pollInterval: 3600}), document.getElementById('news-content') );
 
 
 
