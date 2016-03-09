@@ -36,7 +36,7 @@
 			<div class="nav-center visible-xs visible-sm hidden-md hidden-lg">
 				<ul class="nav nav-tabs">
 					<li role="presentation" class="active"><a href="#news" aria-controls="home" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">NEWS</span></a></li>
-					<li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">EVENTS</span></a></li>
+					<li role="presentation"><a href="#events" onclick="paginateEvents();" aria-controls="profile" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">EVENTS</span></a></li>
 					<li role="presentation"><a href="#majorsprograms" aria-controls="messages" role="tab" data-toggle="tab" class="home-information-tabs" onclick="location.href = 'http://engage.utep.edu/';
 "><span style="font-size:12px;font-weight:bold;">ENGAGE</span></a></li>
 				</ul>
