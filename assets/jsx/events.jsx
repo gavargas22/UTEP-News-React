@@ -52,6 +52,11 @@ var EventsBox = React.createClass({
 	render: function() {
 		return (
 			<EventsList data={this.state.data} />
+			jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
+			  if (e.target.hash == "#events") {
+			      paginateEvents();
+			  }
+			});
 		);
 	}
 });
