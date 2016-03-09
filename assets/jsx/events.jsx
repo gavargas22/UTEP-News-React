@@ -38,10 +38,8 @@ var EventsBox = React.createClass({
 		setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
 	},
 	componentDidUpdate: function() {
-		jQuery('.home-information-tabs').on('shown.bs.tab', function (e) {
-		  if (e.target.hash == "#events") {
-		      paginateEvents();
-		  }
+		jQuery('a[href="#events').on('click', function(){
+			paginateEvents();
 		});
 	},
 	render: function() {
