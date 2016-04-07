@@ -66,6 +66,7 @@ var NewsBox = React.createClass({displayName: "NewsBox",
 	    // Do nothing
 	  } else {
 	    // Otherwise, apply slick.
+			paginateEvents();
 	    jQuery('.slides').slick({
 		    dots: true,
 				customPaging:function() { return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>'; },

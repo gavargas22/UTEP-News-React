@@ -4,21 +4,23 @@
 
 	$doc = JFactory::getDocument();
 	// Load the CSS Styling for the News Module
-	$doc->addStyleSheet($url = JUri::root() . 'media/mod_utepnews/assets/css/utep-news.css');
+	$doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/css/utep-news.css');
 	// Slick
-	$doc->addStyleSheet($url = JUri::root() . 'media/mod_utepnews/assets/javascripts/slick/slick.css');
-	$doc->addStyleSheet($url = JUri::root() . 'media/mod_utepnews/assets/javascripts/slick/slick-theme.css');
+	$doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick.css');
+	$doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick-theme.css');
 	// Load React JS with Addons
-	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/react/react-with-addons.js');
+	$doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/react/react-with-addons.js');
 	// Load the JSX to JS transformer
-	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/react/JSXTransformer.js');
-	 // Load the JSX for News in the head of document
+	$doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/react/JSXTransformer.js');
+	// Load the JSX for News in the head of document
+	// $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/jsx/news.js');
 	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/news.jsx', $type = "text/jsx");
 	// Load the JSX for the Events component
+	// $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/jsx/events.js');
 	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/jsx/events.jsx', $type = "text/jsx");
 	// Slick
-	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/javascripts/slick/slick.min.js');
-	$doc->addScript($url = JUri::root() . 'media/mod_utepnews/assets/javascripts/paginate.js');
+	$doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick.min.js');
+	$doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/paginate.js');
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">
