@@ -14,6 +14,9 @@ var months = [
   "Dec"
 ];
 
+// Initialize TimezoneJS
+timezoneJS.timezone.zoneFileBasePath = '/tz';
+
 var EventsBox = React.createClass({
   loadEventsFromServer: function() {
     jQuery.ajax({
