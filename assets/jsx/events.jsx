@@ -84,6 +84,7 @@ var EventSlides = React.createClass({
       }
       // Conversion to Mountain time
       var convertedDate = new Date(evt.start);
+      console.log(convertedDate);
       return (
         <EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={"'" + evt.icon + "'"} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
       );
