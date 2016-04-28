@@ -85,8 +85,8 @@ var EventSlides = React.createClass({displayName: "EventSlides",
         evt.icon = imageServerURLPrefix.concat(evt.icon);
       }
       // Conversion to Mountain time
-      var convertedDate = new timezoneJS.Date(evt.start, 'America/Denver');
-      console.log(convertedDate);
+      var date = "evt.start";
+      // var convertedDate = new timezoneJS.Date(evt.start, 'America/Denver');
 
       return (
         React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + evt.icon + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
