@@ -87,12 +87,12 @@ var EventSlides = React.createClass({displayName: "EventSlides",
       // Conversion to Mountain time
       var timeFromJSON = new Date(evt.start);
       // Get the offset caused by PHP
-      var offsetCausedByPHPModuleInHours = -(timeFromJSON.getTimezoneOffset())/60;
+      var offsetCausedByPHPModuleInHours = (timeFromJSON.getTimezoneOffset())/60;
       // Convert the UTC parsed time to milliseconds then substract the offset in milliseconds.
       var compensatedEventDate = new Date(timeFromJSON.getTime() - (offsetCausedByPHPModuleInHours * 60 * 60 * 1000));
       // Assign new date to the event object
       console.log(compensatedEventDate);
-      // evt.start = compensatedEventDate;
+      evt.start = compensatedEventDate;
       return (
         React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + evt.icon + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
       );
@@ -124,8 +124,8 @@ var EventElement = React.createClass({displayName: "EventElement",
 
         React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
           React.createElement("div", {className: "picture-date-wrapper"}, 
-            React.createElement("div", {className: "event-date-month"}, months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]), 
-            React.createElement("div", {className: "event-date-day"}, new Date(Date.parse(this.props.articleStartDay)).getDate())
+            React.createElement("div", {className: "event-date-month"}, months[this.props.articleStartMonth.getMonth()]), 
+            React.createElement("div", {className: "event-date-day"}, this.props.articleStartDay.getDate())
           )
         ), 
         React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
