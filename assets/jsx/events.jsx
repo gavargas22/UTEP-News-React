@@ -85,7 +85,7 @@ var EventSlides = React.createClass({
       // Conversion to Mountain time
       var convertedDate = new Date(evt.start);
       return (
-        <EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={"'" + evt.icon + "'"} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={convertedDate} articleStartMonth={convertedDate} key={index}></EventElement>
+        <EventElement articleLink={eventURLPrefix.concat(evt.id)} imagePath={"'" + evt.icon + "'"} articleTitle={evt.name} articleExcerpt={evt.description} articleId={evt.id} articleStartDay={evt.start} articleStartMonth={evt.start} key={index}></EventElement>
       );
     });
     return(
@@ -115,8 +115,8 @@ var EventElement = React.createClass({
 
         <div className="col-lg-12 event-icon" style={articleImageStyle}>
           <div className="picture-date-wrapper">
-            <div className="event-date-month">{months[this.props.articleStartMonth.getMonth()}</div>
-            <div className="event-date-day">{this.props.articleStartDay.getDate()}</div>
+            <div className="event-date-month">{months[new Date(Date.parse(this.props.articleStartMonth)).getMonth()]}</div>
+            <div className="event-date-day">{new Date(Date.parse(this.props.articleStartDay)).getDate()}</div>
           </div>
         </div>
         <div className="orange-strip" style={orangeStripCustomStyle}></div>
