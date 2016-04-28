@@ -73,11 +73,6 @@ var EventSlides = React.createClass({displayName: "EventSlides",
     var nextImage = 0;
 
     var eventNodes = this.props.data.map(function (evt, index) {
-      // Change date to MST from UTC to display correctly.
-      // Get the date into a variable, of object date
-      var gmtDate = evt.start;
-      // Get the offset of time zone
-
       if (evt.icon == "") {
         evt.icon = defaultEventImageURL + defaultEventImages[nextImage++];
         if (nextImage > 3) {
