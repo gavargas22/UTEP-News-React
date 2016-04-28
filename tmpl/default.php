@@ -21,7 +21,6 @@
   // Slick
   $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick.min.js');
   $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/paginate.js');
-  // Timezones
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">
