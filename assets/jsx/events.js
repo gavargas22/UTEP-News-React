@@ -91,7 +91,6 @@ var EventSlides = React.createClass({displayName: "EventSlides",
       // Convert the UTC parsed time to milliseconds then substract the offset in milliseconds.
       var compensatedEventDate = new Date(timeFromJSON.getTime() - (offsetCausedByPHPModuleInHours * 60 * 60 * 1000));
       // Assign new date to the event object
-      console.log(compensatedEventDate);
       evt.start = compensatedEventDate;
       return (
         React.createElement(EventElement, {articleLink: eventURLPrefix.concat(evt.id), imagePath: "'" + evt.icon + "'", articleTitle: evt.name, articleExcerpt: evt.description, articleId: evt.id, articleStartDay: evt.start, articleStartMonth: evt.start, key: index})
