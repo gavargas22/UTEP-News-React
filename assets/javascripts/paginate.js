@@ -7,14 +7,14 @@ var paginateNews = function(){
     // Otherwise, apply slick.
     jQuery('.slides').slick({
       dots: true,
-      customPaging:function(slider, i) {
-        console.log(slider);
-        if (slider.slideCount == i) {
-          return '<a><img src="http://cdn.bulbagarden.net/upload/3/33/Spr_3f_151.png"></a>';
-        } else if (slider.slideCount != i) {
-          return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>';
-        }
-      },
+      // customPaging:function(slider, i) {
+      //   console.log(slider.slideCount);
+      //   if (slider.slideCount == i) {
+      //     return '<a><img src="http://cdn.bulbagarden.net/upload/3/33/Spr_3f_151.png"></a>';
+      //   } else if (slider.slideCount != i) {
+      //     return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>';
+      //   }
+      // },
       infinite: false,
       speed: 300,
       slidesToShow: 2,
