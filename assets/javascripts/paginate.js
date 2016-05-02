@@ -60,7 +60,7 @@ var paginateEvents = function(){
     // Otherwise, apply slick.
     jQuery('.events-paginated').slick({
       dots: true,
-      customPaging:function() { return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>'; },
+      // customPaging:function() { return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>'; },
       infinite: false,
       speed: 300,
       slidesToShow: 3,
