@@ -140,7 +140,7 @@ var EventElement = React.createClass({
 
 
 
-React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={30000} />, document.getElementById('events-content') );
+React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={2000} />, document.getElementById('events-content') );
 
 
 
