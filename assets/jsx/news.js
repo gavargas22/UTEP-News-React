@@ -60,60 +60,13 @@ var NewsBox = React.createClass({displayName: "NewsBox",
     setInterval(this.loadNewsFromServer, this.props.pollInterval);
   },
   componentDidUpdate: function() {
-    // Pagination of News Articles
-    // Check to see if the element already has the slick class
-    if (jQuery('.slides').hasClass('slick-initialized')) {
-      // Do nothing
-    } else {
-      // Otherwise, apply slick.
-      paginateEvents();
-      jQuery('.slides').slick({
-        dots: true,
-        // customPaging:function(slider, i) {
-        //   console.log(slider.slideCount);
-        //   if (slider.slideCount == i) {
-        //     return '<a><img src="http://cdn.bulbagarden.net/upload/3/33/Spr_3f_151.png"></a>';
-        //   } else if (slider.slideCount != i) {
-        //     return '<a><img src="http://skunkworks.at.utep.edu/cdn/utep/rectangular12.png"></a>';
-        //   }
-        // },
-        infinite: false,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        responsive: [{
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        }, {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        }, {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerPadding: '40px;',
-            arrows: false
+    paginateNews();
+    jQuery('[href="#news"]').on('shown.bs.tab', function (e) {
+      jQuery('.slides').slick('setPosition');
+    });
 
-          }
-        }
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-        ]
-      });
-    }
-    // Ellipsis
-    jQuery(".article-title-excerpt").dotdotdot({
-      //	configuration goes here
+    jQuery('[href="#events"]').on('shown.bs.tab', function (e) {
+      jQuery('.events-paginated').slick('setPosition');
     });
   },
   render: function() {

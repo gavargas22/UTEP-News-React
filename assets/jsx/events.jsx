@@ -41,9 +41,7 @@ var EventsBox = React.createClass({
     setInterval(this.loadEventsFromServer, this.props.eventPollInterval);
   },
   componentDidUpdate: function() {
-    jQuery('a[href="#events').on('click', function(){
-      paginateEvents();
-    });
+    paginateEvents();
   },
   render: function() {
     return (
@@ -140,7 +138,7 @@ var EventElement = React.createClass({
 
 
 
-React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={2000} />, document.getElementById('events-content') );
+React.render( <EventsBox url="http://events.utep.edu/index.php?option=com_eventsjson&format=json" eventPollInterval={3000} />, document.getElementById('events-content') );
 
 
 
