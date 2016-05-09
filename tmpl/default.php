@@ -41,35 +41,35 @@
           <li role="presentation"><a href="#majorsprograms" aria-controls="messages" role="tab" data-toggle="tab" class="home-information-tabs" onclick="location.href = 'http://engage.utep.edu/';"><span style="font-size:12px;font-weight:bold;">ENGAGE</span></a></li>
         </ul>
       </div>
-
-      <!-- <ul class="nav nav-tabs center-custom-nav-tabs-responsive visible-xs visible-sm hidden-md hidden-lg" role="tablist">
-        <li role="presentation" class="active"><a href="#news" aria-controls="home" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">NEWS</span></a></li>
-        <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">EVENTS</span></a></li>
-        <li role="presentation"><a href="#majorsprograms" aria-controls="messages" role="tab" data-toggle="tab" class="home-information-tabs"><span style="font-size:12px;font-weight:bold;">MAJORS</span></a></li>
-      </ul> -->
       <?php //End cellphone size ?>
     </div>
   </div>
 
-  <div class="container news-content">
+  <div class="container">
+
     <div id="loading-graphic" style="text-align:center;height:100px;font-weight:bold;font-size:20px;">
       <img src="<?php echo JUri::root() . 'modules/mod_utepnews/assets/images/loading.gif'; ?>"/>
       <h4>Loading</h4>
     </div>
-    <div class="tab-content utep-news-tab">
+
+    <di[v class="tab-content">
+
       <div role="tabpanel" class="tab-pane no-outline active" id="news">
         <div id="news-content"></div>
         <div class="bottom-btn">
           <a href="http://news.utep.edu">More News</a>
         </div>
       </div>
+
       <div role="tabpanel" class="tab-pane no-outline" id="events">
         <div id="events-content"></div>
         <div class="bottom-btn">
           <a href="http://events.utep.edu">More Events</a>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane no-outline" id="majorsprograms">...</div>
+
+      <div role="tabpanel" class="tab-pane no-outline" id="majorsprograms"></div>
+
     </div>
 
   </div>
