@@ -1,6 +1,10 @@
 .news-content {
   margin-top: 40px; }
 
+.banner-wrapper img {
+  max-width: 100%;
+  height: auto; }
+
 .news-title {
   padding-top: 10px;
   padding-bottom: 10px; }

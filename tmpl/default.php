@@ -52,7 +52,7 @@
       <h4>Loading</h4>
     </div>
 
-    <di[v class="tab-content">
+    <div class="tab-content">
 
       <div role="tabpanel" class="tab-pane no-outline active" id="news">
         <div id="news-content"></div>
@@ -68,7 +68,9 @@
         </div>
       </div>
 
-      <div role="tabpanel" class="tab-pane no-outline" id="majorsprograms"></div>
+      <div role="tabpanel" class="tab-pane no-outline" id="majorsprograms">
+        <div class="banner-wrapper"><img src="<?php echo JUri::root() . 'modules/mod_utepnews/assets/images/banner.png'; ?>" /></div>
+      </div>
 
     </div>
 
