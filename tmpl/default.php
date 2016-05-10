@@ -69,7 +69,6 @@
       </div>
 
       <div role="tabpanel" class="tab-pane no-outline" id="majorsprograms">
-        <div class="banner-wrapper"><img src="<?php echo JUri::root() . 'modules/mod_utepnews/assets/images/banner.png'; ?>" /></div>
       </div>
 
     </div>
