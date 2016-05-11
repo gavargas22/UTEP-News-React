@@ -133,7 +133,7 @@ var Article = React.createClass({
     var orangeStripCustomStyle = {
       'width': 65,
       'height': 2,
-      'marginTop': 15,
+      'marginTop': 20,
       'marginLeft': 15
     };
     return (
