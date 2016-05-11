@@ -52,7 +52,7 @@ var EventsBox = React.createClass({displayName: "EventsBox",
 var EventsList = React.createClass({displayName: "EventsList",
   render: function() {
     return (
-      React.createElement("div", {className: "events-list"},
+      React.createElement("div", {className: "events-list"}, 
         React.createElement(EventSlides, {data: this.props.data})
       )
     );
@@ -95,7 +95,7 @@ var EventSlides = React.createClass({displayName: "EventSlides",
       );
     });
     return(
-      React.createElement("div", {className: "row events-paginated"},
+      React.createElement("div", {className: "row events-paginated"}, 
         eventNodes
       )
     );
@@ -117,16 +117,16 @@ var EventElement = React.createClass({displayName: "EventElement",
     };
     return (
 
-      React.createElement("div", {className: classNames},
+      React.createElement("div", {className: classNames}, 
 
-        React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle},
-          React.createElement("div", {className: "picture-date-wrapper"},
-            React.createElement("div", {className: "event-date-month"}, months[this.props.articleStartMonth.getMonth()]),
+        React.createElement("div", {className: "col-lg-12 event-icon", style: articleImageStyle}, 
+          React.createElement("div", {className: "picture-date-wrapper"}, 
+            React.createElement("div", {className: "event-date-month"}, months[this.props.articleStartMonth.getMonth()]), 
             React.createElement("div", {className: "event-date-day"}, this.props.articleStartDay.getDate())
           )
-        ),
-        React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}),
-        React.createElement("div", {className: "event-title-text"}, this.props.articleTitle),
+        ), 
+        React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+        React.createElement("div", {className: "event-title-text"}, this.props.articleTitle), 
         React.createElement("div", {className: "event-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
 
       )
@@ -134,8 +134,6 @@ var EventElement = React.createClass({displayName: "EventElement",
   }
 });
 //////////////////////////////////////////////////////
-
-
 
 React.render( React.createElement(EventsBox, {url: "http://events.utep.edu/index.php?option=com_eventsjson&format=json", eventPollInterval: 3000}), document.getElementById('events-content') );
 

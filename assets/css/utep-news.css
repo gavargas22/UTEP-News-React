@@ -76,7 +76,8 @@
     bottom: 0;
     position: absolute;
     width: 100%;
-    padding: 10px 0; }
+    padding: 10px 0;
+    margin-left: 4px; }
     .event-wrapper .event-more-button a {
       color: #6F6F6F;
       font-weight: bold; }
