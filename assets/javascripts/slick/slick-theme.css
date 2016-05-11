@@ -147,6 +147,7 @@
     padding: 0;
 
     cursor: pointer;
+    margin: 0 10px;
 }
 .slick-dots li button
 {
