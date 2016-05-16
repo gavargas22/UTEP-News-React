@@ -23,13 +23,13 @@ var paginateNews = function(){
           dots: true
         }
       }, {
-        breakpoint: 600,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2
         }
       }, {
-        breakpoint: 480,
+        breakpoint: 670,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -73,14 +73,14 @@ var paginateEvents = function() {
           dots: true
         }
       }, {
-        breakpoint: 600,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
           arrows: false
         }
       }, {
-        breakpoint: 480,
+        breakpoint: 670,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
