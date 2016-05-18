@@ -15,12 +15,13 @@ var paginateNews = function(){
       slidesToShow: 3,
       slidesToScroll: 3,
       responsive: [{
-        breakpoint: 1024,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: true,
+          arrows:false
         }
       }, {
         breakpoint: 992,
@@ -66,12 +67,13 @@ var paginateEvents = function() {
       slidesToShow: 3,
       slidesToScroll: 3,
       responsive: [{
-        breakpoint: 1024,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: true,
+          arrows: false
         }
       }, {
         breakpoint: 992,
