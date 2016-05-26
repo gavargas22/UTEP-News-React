@@ -25,6 +25,8 @@
   $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/paginate.js');
   // Timezones
   $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/timezone-js/date.js');
+  // Dotdotdot
+  $doc->addScript($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/dotdotdot/jquery.dotdotdot.min.js');
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">
