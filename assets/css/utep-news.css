@@ -50,7 +50,7 @@
 }
 
 .article-wrapper {
-  height: 400px;
+  height: 400px !important;
   padding: 0;
   background-color: #ffffff;
 }
