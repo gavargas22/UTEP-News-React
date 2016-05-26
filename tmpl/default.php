@@ -1,6 +1,8 @@
 <?php
   // No direct access
   defined('_JEXEC') or die;
+  JHtml::_('jquery.framework');
+
 
   $doc = JFactory::getDocument();
   // Load the CSS Styling for the News Module
