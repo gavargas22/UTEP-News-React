@@ -416,8 +416,14 @@ a.calendar-card:hover {
 }
 
 .nav-center ul.nav li a {
-  float: left;
+  float: none;
   font-size: 12px;
+}
+
+.nav-center .nav-tabs > li.active > a, .nav-center .nav-tabs > li.active > a:focus, .nav-center .nav-tabs > li.active > a:hover {
+  color: #fff !important;
+  background-color: #041e42;
+  cursor: default;
 }
 
 .article {

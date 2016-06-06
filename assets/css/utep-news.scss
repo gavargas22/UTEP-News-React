@@ -394,10 +394,15 @@ a.calendar-card {
       display: inline;
       width: 100%;
       a {
-        float: left;
+        float: none;
         font-size: 12px;
       }
     }
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #fff!important;
+    background-color: #041e42;
+    cursor: default;
   }
 }
 
