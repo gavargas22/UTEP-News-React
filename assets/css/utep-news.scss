@@ -539,3 +539,16 @@ a.calendar-card {
     }
   }
 }
+
+// Tabs
+.nav-tabs>li.active {
+  background-color: #ff8200;
+}
+.nav-tabs > li {
+  background-color: #fff;
+}
+@media (max-width: 767px) {
+  .nav-tabs > li {
+    width: auto;
+  }
+}
