@@ -542,12 +542,16 @@ a.calendar-card {
 
 // Tabs
 .nav-tabs>li.active {
-  background-color: #ff8200;
+  background-color: #041e42;
 }
 .nav-tabs > li {
   background-color: #fff;
 }
 @media (max-width: 767px) {
+  .nav-tabs {
+    border: none;
+    margin-bottom: -1px;
+  }
   .nav-tabs > li {
     width: auto;
   }

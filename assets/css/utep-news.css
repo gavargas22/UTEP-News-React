@@ -570,7 +570,7 @@ a.calendar-card:hover {
 }
 
 .nav-tabs > li.active {
-  background-color: #ff8200;
+  background-color: #041e42;
 }
 
 .nav-tabs > li {
@@ -578,6 +578,10 @@ a.calendar-card:hover {
 }
 
 @media (max-width: 767px) {
+  .nav-tabs {
+    border: none;
+    margin-bottom: -1px;
+  }
   .nav-tabs > li {
     width: auto;
   }
