@@ -279,14 +279,14 @@ ul.center-custom-nav-tabs-responsive {
 }
 
 .center-custom-nav-tabs > li.active > a {
-  background: #ff8200;
+  background: #041e42;
   border: none;
   color: #fff !important;
   font-size: 20px;
 }
 
 .center-custom-nav-tabs > li.active > a:hover, .center-custom-nav-tabs > li.active > a:focus {
-  background: #ff8200;
+  background: #041e42;
   border: none;
   color: #fff !important;
   font-size: 20px;
