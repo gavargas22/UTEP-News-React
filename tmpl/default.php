@@ -30,8 +30,8 @@
 ?>
 
 <div class="container-fluid no-padding center-custom-tabs-wrapper">
-  <div class="container-fluid center-tabs-background">
-    <div class="container">
+  <div class="container-fluid center-tabs-background no-padding">
+    <div class="container no-padding">
       <ul class="nav nav-tabs center-custom-nav-tabs hidden-xs hidden-sm visible-md visible-lg" role="tablist">
         <li role="presentation" class="active"><a href="#news" aria-controls="home" role="tab" data-toggle="tab" class="home-information-tabs">NEWS</a></li>
         <li role="presentation"><a href="#events" aria-controls="profile" role="tab" data-toggle="tab" class="home-information-tabs">EVENTS</a></li>
