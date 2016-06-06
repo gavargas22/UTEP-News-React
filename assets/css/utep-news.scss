@@ -403,7 +403,18 @@ a.calendar-card {
     color: #fff!important;
     background-color: #041e42;
     cursor: default;
+    border: none;
   }
+  .nav-tabs>li:hover {
+    background-color: #041e42;
+  }
+  .nav > li > a:hover {
+    background-color: transparent;
+    color: #fff !important;
+  }
+  .nav-tabs>li>a:hover {
+    border: none;
+}
 }
 
 .article {
