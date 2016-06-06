@@ -407,10 +407,12 @@ a.calendar-card:hover {
 
 .nav-center ul.nav {
   display: inline-block;
+  width: 100%;
 }
 
 .nav-center ul.nav li {
   display: inline;
+  width: 100%;
 }
 
 .nav-center ul.nav li a {

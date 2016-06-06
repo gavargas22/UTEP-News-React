@@ -389,8 +389,10 @@ a.calendar-card {
   margin-bottom: -4px;
   ul.nav {
     display: inline-block;
+    width: 100%;
     li {
       display: inline;
+      width: 100%;
       a {
         float: left;
         font-size: 12px;
