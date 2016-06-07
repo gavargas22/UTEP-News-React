@@ -573,4 +573,10 @@ a.calendar-card {
   .nav-tabs > li {
     width: auto;
   }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: none;
+  }
+  .nav-tabs>li:hover {
+    background-color:#041e42;
+  }
 }
