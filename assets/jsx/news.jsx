@@ -139,7 +139,7 @@ var Article = React.createClass({
     return (
       <div className={classNames} >
         <div className="news-article-image" style={articleImageStyle}></div>
-        <div className="orange-strip" style={orangeStripCustomStyle}></div>
+        <div className="blue-strip" style={orangeStripCustomStyle}></div>
         <div className="article-title-text">{this.props.articleTitle}</div>
         <div className="article-more-button"><a href={this.props.articleLink}>READ MORE &gt;</a></div>
       </div>

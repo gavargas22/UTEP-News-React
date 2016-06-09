@@ -125,7 +125,7 @@ var EventElement = React.createClass({displayName: "EventElement",
             React.createElement("div", {className: "event-date-day"}, this.props.articleStartDay.getDate())
           )
         ), 
-        React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+        React.createElement("div", {className: "blue-strip", style: orangeStripCustomStyle}), 
         React.createElement("div", {className: "event-title-text"}, this.props.articleTitle), 
         React.createElement("div", {className: "event-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
 

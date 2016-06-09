@@ -138,7 +138,7 @@ var Article = React.createClass({displayName: "Article",
     return (
       React.createElement("div", {className: classNames}, 
         React.createElement("div", {className: "news-article-image", style: articleImageStyle}), 
-        React.createElement("div", {className: "orange-strip", style: orangeStripCustomStyle}), 
+        React.createElement("div", {className: "blue-strip", style: orangeStripCustomStyle}), 
         React.createElement("div", {className: "article-title-text"}, this.props.articleTitle), 
         React.createElement("div", {className: "article-more-button"}, React.createElement("a", {href: this.props.articleLink}, "READ MORE >"))
       )

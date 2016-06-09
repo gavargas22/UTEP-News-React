@@ -7,7 +7,7 @@
 ?>
 <div class="col-lg-6">
 		<h2 style="color: #ff8200; font-weight: bold; text-transform: uppercase;">Featured News</h2>
-		<div class="orange-strip" style="width: 100px; height: 3px; margin-bottom: 30px;">&nbsp;</div>
+		<div class="blue-strip" style="width: 100px; height: 3px; margin-bottom: 30px;">&nbsp;</div>
 		<div class="row" style="padding-left: 15px;">
 			<div class="col-lg-6" style="background-color: #7a7a7a; height: 160px;">&nbsp;</div>
 			<div class="col-lg-6">
