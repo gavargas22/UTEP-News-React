@@ -68,7 +68,7 @@
 }
 
 .article-wrapper .article-more-button a:hover {
-  color: #ff8200;
+  color: #041e42;
   text-decoration: none;
 }
 
@@ -85,7 +85,7 @@
   font-size: 18px;
   font-weight: 600;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  color: #ff8200;
+  color: #041e42;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -106,7 +106,7 @@
 }
 
 .event-wrapper .event-more-button a:hover {
-  color: #ff8200;
+  color: #041e42;
   text-decoration: none;
 }
 
@@ -298,7 +298,7 @@ ul.center-custom-nav-tabs-responsive {
 }
 
 .bottom-btn a {
-  color: #ff8200;
+  color: #041e42;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 30px;
