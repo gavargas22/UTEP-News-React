@@ -6,7 +6,7 @@
 
   $doc = JFactory::getDocument();
   // Load the CSS Styling for the News Module
-  $doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/css/utep-news.css');
+  $doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/css/utep-news.min.css');
   // Slick
   $doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick.css');
   $doc->addStyleSheet($url = JUri::root() . 'modules/mod_utepnews/assets/javascripts/slick/slick-theme.css');
