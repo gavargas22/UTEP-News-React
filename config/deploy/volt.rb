@@ -17,6 +17,8 @@ namespace :deploy do
   task :update_template do
     on fetch(:username) + "@volt.utep.edu" do
       #UTEP News
+      # Delete first
+      execute "rm -rf /cygdrive/d/Projects/utep/modules/mod_utepnews/*"
       execute "yes | cp -rf #{current_path}/* /cygdrive/d/Projects/utep/modules/mod_utepnews/"
     end
   end
